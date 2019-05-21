@@ -58,7 +58,7 @@
 
 .about-section-text {
   float: right;
-  width: 600px;
+  max-width: 600px;
   /* background: rgba(255,255,255,0.5); */
   /* border: 1px solid #eee; */
   /* box-shadow: -3px 5px 13px -3px rgba(0,0,0,0.75); */
