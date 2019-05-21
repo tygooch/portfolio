@@ -8,9 +8,13 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
-
 import Header from "./header"
 import "./layout.css"
+
+import { library } from "@fortawesome/fontawesome-svg-core"
+import { fab } from "@fortawesome/free-brands-svg-icons"
+
+library.add(fab)
 
 const Layout = ({ children }) => (
   <StaticQuery
