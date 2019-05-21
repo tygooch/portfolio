@@ -1,4 +1,5 @@
-import { Link } from "gatsby"
+// import { AniLink } from "gatsby"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 import PropTypes from "prop-types"
 import React from "react"
 import Icon from "./icon"
@@ -6,39 +7,82 @@ import logo from "../images/logo2.svg"
 
 const Header = ({ siteTitle }) => (
   <header className="header">
-    <Link to="/" activeClassName="header-logo-active" className="header-logo">
+    <AniLink
+      to="/"
+      fade
+      activeStyle={{ color: "#CF000F", transition: "all 0.75s linear" }}
+      activeClassName="header-logo-active"
+      className="header-logo"
+      exit={{
+        length: 0.75,
+      }}
+      entry={{
+        delay: 0.75,
+      }}
+    >
       <img src={logo} alt="" />
-    </Link>
+    </AniLink>
     <div className="header-links">
-      <Link
-        key={0}
+      <AniLink
         to="/about"
+        fade
         className="header-link"
-        activeStyle={{ width: "auto", height: "inherit" }}
+        activeStyle={{ color: "#CF000F", transition: "all 0.75s linear" }}
+        activeClassName="active"
+        exit={{
+          length: 0.75,
+        }}
+        entry={{
+          delay: 0.75,
+        }}
       >
         <span className="header-link-text">ABOUT</span>
-      </Link>
-      <Link
+      </AniLink>
+      <AniLink
         to="/portfolio"
+        fade
         className="header-link"
-        activeStyle={{ width: "auto", height: "inherit" }}
+        activeStyle={{ color: "#CF000F", transition: "all 0.75s linear" }}
+        activeClassName="active"
+        exit={{
+          length: 0.75,
+        }}
+        entry={{
+          delay: 0.75,
+        }}
       >
         <span className="header-link-text">PORTFOLIO</span>
-      </Link>
-      <Link
+      </AniLink>
+      <AniLink
         to="/resume"
+        fade
         className="header-link"
-        activeStyle={{ width: "auto", height: "inherit" }}
+        activeStyle={{ color: "#CF000F", transition: "all 0.75s linear" }}
+        activeClassName="active"
+        exit={{
+          length: 0.75,
+        }}
+        entry={{
+          delay: 0.75,
+        }}
       >
         <span className="header-link-text">RESUME</span>
-      </Link>
-      <Link
+      </AniLink>
+      <AniLink
         to="/contact"
+        fade
         className="header-link"
-        activeStyle={{ width: "auto", height: "inherit" }}
+        activeStyle={{ color: "#CF000F", transition: "all 0.75s linear" }}
+        activeClassName="active"
+        exit={{
+          length: 0.75,
+        }}
+        entry={{
+          delay: 0.75,
+        }}
       >
         <span className="header-link-text">CONTACT</span>
-      </Link>
+      </AniLink>
     </div>
     <div className="social-links">
       <a href="https://github.com/tygooch" className="social-link">
