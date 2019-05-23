@@ -46,7 +46,7 @@ main {
   flex: 1;
   /* margin: 80px auto; */
   padding-bottom: 80px;
-  padding-top: 100px;
+  padding-top: 80px;
   margin-bottom: calc(env(safe-area-inset-bottom) * 1.5);
   /* padding: 20px 0px; */
   display: flex;

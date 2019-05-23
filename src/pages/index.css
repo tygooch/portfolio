@@ -1,16 +1,13 @@
 .home-container {
   margin-top: auto;
   margin-bottom: auto;
-  /* width: 100vw; */
   justify-content: center;
   display: flex;
   flex-direction: row;
-  /* background: #cf000f; */
 }
 
 @media screen and (max-width: 700px) {
   .home-container {
-    /* height: calc(100% - 80px); */
   }
 }
 
@@ -22,33 +19,19 @@
   position: relative;
   height: inherit;
   max-width: 400px;
-
   justify-content: center;
-  /* font-weight: 00; */
   background: none;
-  /* outline: 5px solid black; */
   color: black;
-  /* box-shadow: -3px 5px 20px -3px rgba(0,0,0,0.75); */
-  /* box-shadow: -0px 10px 15px 5px rgba(0,0,0,0.75); */
-  /* transform: rotateX(90deg) translate3d(0, 0, 50px); */
-  /* transform: perspective(100cm) rotateX(-10deg) rotateY(10deg); */
-  /* animation-name: shifting;
-  animation-duration: 10s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear; */
 }
 
 .home-text-container-header {
   font-size: 2em;
-  /* line-height: normal;
-  vertical-align: middle; */
   font-weight: 700;
 }
 
 .home-text-container-location {
   text-align: center;
-  /* margin: 0px 5px; */
-  font-size: 1.0em;
+  font-size: 1em;
   font-weight: 200;
 }
 
@@ -56,20 +39,15 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  /* margin-top: 5px; */
 }
 
 .home-link {
   text-align: center;
-  /* height: 2em !important; */
-  /* line-height: normal; */
-  /* line-height: 2em; */
   width: 100%;
   height: 100%;
-  font-size: 0.5em;
+  font-size: 0.65em;
   color: white;
   font-weight: 300;
-  /* padding: 5px; */
   opacity: 1;
   vertical-align: middle;
   display: flex;
@@ -87,25 +65,16 @@
 }
 
 .home-link:first-child:hover {
-  /* background-color: rgba(0,0,0,0.75); */
   color: #cf000f;
   font-weight: 400;
 }
 
 .home-link:last-child:hover {
-  /* background-color: rgba(0,0,0,0.75); */
   color: #000;
   font-weight: 400;
 }
 
 .home-link-text {
-  /* font-family: 'Roboto'; */
-  /* display: inline-block; */
-  /* background: green; */
   vertical-align: middle;
-  /* vertical-align: -webkit-baseline-middle; */
   line-height: normal;
-  /* font-size: 0.5em; */
-  /* height: 1em; */
-  /* margin-top: 0.1em; */
 }
