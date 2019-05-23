@@ -8,12 +8,11 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
-import Header from "./header"
-import Footer from "./footer"
-import "./layout.css"
-
 import { library } from "@fortawesome/fontawesome-svg-core"
 import { fab } from "@fortawesome/free-brands-svg-icons"
+import "normalize.css"
+
+import "./layout.css"
 
 library.add(fab)
 
@@ -28,15 +27,7 @@ const Layout = ({ children }) => (
         }
       }
     `}
-    render={data => (
-      <>
-        <div className="app-container">
-          <Header siteTitle={data.site.siteMetadata.title} />
-          <main className="main-content">{children}</main>
-          <Footer />
-        </div>
-      </>
-    )}
+    render={data => <div className="content">{children}</div>}
   />
 )
 

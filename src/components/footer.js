@@ -1,83 +1,45 @@
-// import { AniLink } from "gatsby"
-import AniLink from "gatsby-plugin-transition-link/AniLink"
-import PropTypes from "prop-types"
+import { Link } from "gatsby"
+// import AniLink from "gatsby-plugin-transition-link/AniLink"
 import React from "react"
-import Icon from "./icon"
-import logo from "../images/logo2.svg"
+import "./footer.css"
 
-const Header = ({ siteTitle }) => (
+const Footer = ({ siteTitle }) => (
   <footer className="footer">
     <div className="footer-links">
-      <AniLink
-        to="/about"
-        fade
+      <Link
+        to="/about/"
         className="footer-link"
         activeStyle={{ color: "#CF000F", transition: "all 0.75s linear" }}
         activeClassName="active"
-        exit={{
-          length: 0.75,
-        }}
-        entry={{
-          delay: 0.75,
-        }}
       >
         <span className="footer-link-text">ABOUT</span>
-      </AniLink>
-      <AniLink
-        to="/portfolio"
-        fade
+      </Link>
+      <Link
+        to="/portfolio/"
         className="footer-link"
         activeStyle={{ color: "#CF000F", transition: "all 0.75s linear" }}
         activeClassName="active"
-        exit={{
-          length: 0.75,
-        }}
-        entry={{
-          delay: 0.75,
-        }}
       >
         <span className="footer-link-text">PORTFOLIO</span>
-      </AniLink>
-      <AniLink
-        to="/resume"
-        fade
+      </Link>
+      <Link
+        to="/resume/"
         className="footer-link"
         activeStyle={{ color: "#CF000F", transition: "all 0.75s linear" }}
         activeClassName="active"
-        exit={{
-          length: 0.75,
-        }}
-        entry={{
-          delay: 0.75,
-        }}
       >
         <span className="footer-link-text">RESUME</span>
-      </AniLink>
-      <AniLink
-        to="/contact"
-        fade
+      </Link>
+      <Link
+        to="/contact/"
         className="footer-link"
         activeStyle={{ color: "#CF000F", transition: "all 0.75s linear" }}
         activeClassName="active"
-        exit={{
-          length: 0.75,
-        }}
-        entry={{
-          delay: 0.75,
-        }}
       >
         <span className="footer-link-text">CONTACT</span>
-      </AniLink>
+      </Link>
     </div>
   </footer>
 )
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
-}
-
-export default Header
+export default Footer

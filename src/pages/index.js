@@ -1,5 +1,6 @@
 import React from "react"
-import AniLink from "gatsby-plugin-transition-link/AniLink"
+import { withPrefix, Link } from "gatsby"
+import Particles from "react-particles-js"
 
 import Layout from "../components/layout"
 import Image from "../components/image"
@@ -8,69 +9,49 @@ import SEO from "../components/seo"
 import "./index.css"
 
 const IndexPage = () => (
-  <Layout>
+  <>
     <SEO title="Ty Gooch" />
     <div className="home-container">
       <div className="home-text-container">
-        <h1 style={{ textAlign: "center", padding: "0px", margin: "0px" }}>
-          DEVELOPER
-        </h1>
+        {/* <h1 style={{ textAlign: "center", padding: "0px", margin: "0px" }}> */}
+        {/* DEVELOPER */}
+        {/* </h1> */}
+        <span className="home-text-container-header">DEVELOPER</span>
         <span className="home-text-container-location">SANTA BARBARA, CA</span>
         <div className="home-links">
-          <div
+          <Link
+            to="/about"
             className="home-link"
-            style={
-              typeof window !== "undefined"
-                ? window.innerWidth < 700
-                  ? { fontWeight: "400" }
-                  : null
-                : null
-            }
+            fade
+            exit={{
+              length: 0.75,
+            }}
+            entry={{
+              delay: 0.75,
+            }}
           >
-            <AniLink
-              to="/about"
-              className="home-link-text"
-              style={{ backgroundColor: "black", color: "white" }}
-              fade
-              exit={{
-                length: 0.75,
-              }}
-              entry={{
-                delay: 0.75,
-              }}
-            >
-              LEARN MORE
-            </AniLink>
-          </div>
-          <div
+            {/* LEARN MORE */}
+            <span className="home-link-text">LEARN MORE</span>
+          </Link>
+
+          <Link
+            to="/portfolio"
             className="home-link"
-            style={
-              typeof window !== "undefined"
-                ? window.innerWidth < 700
-                  ? { fontWeight: "400" }
-                  : null
-                : null
-            }
+            fade
+            exit={{
+              length: 0.75,
+            }}
+            entry={{
+              delay: 0.75,
+            }}
           >
-            <AniLink
-              to="/portfolio"
-              className="home-link-text"
-              style={{ backgroundColor: "#cf000f" }}
-              fade
-              exit={{
-                length: 0.75,
-              }}
-              entry={{
-                delay: 0.75,
-              }}
-            >
-              VIEW PORTFOLIO
-            </AniLink>
-          </div>
+            {/* VIEW PORTFOLIO */}
+            <span className="home-link-text">VIEW PORTFOLIO</span>
+          </Link>
         </div>
       </div>
     </div>
-  </Layout>
+  </>
 )
 
 export default IndexPage
