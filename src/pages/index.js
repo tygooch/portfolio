@@ -19,32 +19,12 @@ const IndexPage = () => (
         <span className="home-text-container-header">DEVELOPER</span>
         <span className="home-text-container-location">SANTA BARBARA, CA</span>
         <div className="home-links">
-          <Link
-            to="/about"
-            className="home-link"
-            fade
-            exit={{
-              length: 0.75,
-            }}
-            entry={{
-              delay: 0.75,
-            }}
-          >
+          <Link to="/about" className="home-link">
             {/* LEARN MORE */}
             <span className="home-link-text">LEARN MORE</span>
           </Link>
 
-          <Link
-            to="/portfolio"
-            className="home-link"
-            fade
-            exit={{
-              length: 0.75,
-            }}
-            entry={{
-              delay: 0.75,
-            }}
-          >
+          <Link to="/portfolio" className="home-link">
             {/* VIEW PORTFOLIO */}
             <span className="home-link-text">VIEW PORTFOLIO</span>
           </Link>

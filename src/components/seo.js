@@ -37,7 +37,7 @@ function SEO({ description, lang, meta, title }) {
       meta={[
         {
           name: `viewport`,
-          content: "initial-scale=1, viewport-fit=cover",
+          content: "width=device-width, initial-scale=1.0, viewport-fit=cover",
         },
         {
           name: `description`,

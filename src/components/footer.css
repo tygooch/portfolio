@@ -1,9 +1,14 @@
 .footer {
+  
   background: #000;
   width: 100vw;
-  z-index: 999999;
-  position: fixed;
+  /* z-index: 999999; */
+  position: sticky;
   bottom: 0px;
+  padding-bottom: env(safe-area-inset-bottom);
+  /* padding-bottom: calc(env(safe-area-inset-bottom) * 1.5); */
+  /* margin-top: calc(env(safe-area-inset-bottom) * 1.5); */
+  /* transform: translateY(100vh); */
   left: 0px;
   right: 0px;
   display: flex;
@@ -15,12 +20,13 @@
 .footer-links {
   background: #000;
   /* padding: 0px 15px; */
-  /* position: fixed; */
+  position: relative;
+  /* bottom: env(safe-area-inset-bottom); */
   display: flex;
   flex-direction: row;
   /* height: 80px; */
   /* margin-bottom: env(safe-area-inset-bottom); */
-  margin-bottom: calc(env(safe-area-inset-bottom) * 1.5);
+  /* margin-bottom: calc(env(safe-area-inset-bottom) * 1.5); */
 }
 
 .footer-link {

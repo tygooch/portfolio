@@ -13,6 +13,7 @@ import { fab } from "@fortawesome/free-brands-svg-icons"
 import { fas } from "@fortawesome/pro-solid-svg-icons"
 import { far } from "@fortawesome/pro-regular-svg-icons"
 import { fal } from "@fortawesome/pro-light-svg-icons"
+import innerHeight from "ios-inner-height"
 import "normalize.css"
 
 import "./layout.css"
@@ -30,7 +31,16 @@ const Layout = ({ children }) => (
         }
       }
     `}
-    render={data => <div className="content">{children}</div>}
+    render={data => (
+      <div
+        className="content"
+        // style={{
+        //   height: `${window.innerHeight - 500}px`,
+        // }}
+      >
+        {children}
+      </div>
+    )}
   />
 )
 

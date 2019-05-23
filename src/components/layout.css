@@ -1,18 +1,61 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap');
 
 html {
+  background: black;
 }
 
 body {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   /* font-size: 16px; */
-  margin: 0px;
-  padding: 0px;
+  /* margin: 0px;
+  padding: 0px; */
   color: black;
   background-color: white;
   overflow: auto;
-  /* min-height: 100vh; */
+  background: linear-gradient(-45deg, #fff, #fff, #fff, #fff);
+	background-size: 400% 400%;
+	-webkit-animation: Gradient 30s ease infinite;
+	-moz-animation: Gradient 30s ease infinite;
+  animation: Gradient 30s ease infinite;
+  /* background: none; */
+  /* margin-bottom: 100px; */
+}
+
+@-webkit-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@-moz-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
 }
 
 h1 {
@@ -39,29 +82,30 @@ nav {
 main {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  /* min-height: 100vh; */
 }
 
 .content {
   flex: 1;
+  position: relative;
+  /* margin-bottom: calc(-1 * env(safe-area-inset-bottom));
+  bottom: calc(1 * env(safe-area-inset-bottom)); */
+  /* transform: translateY(calc(
+    -1 * ((1 * env(safe-area-inset-bottom)) + 34px)
+    )); */
+  /* margin-top: 60px; */
+  /* transform: translateY(-67px); */
   /* margin: 80px auto; */
-  padding-bottom: 80px;
-  padding-top: 80px;
-  margin-bottom: calc(env(safe-area-inset-bottom) * 1.5);
+  /* padding-bottom: 20px; */
+  /* padding-top: 80px; */
+  /* padding-bottom: 20px; */
+  /* padding-bottom: env(safe-area-inset-bottom); */
   /* padding: 20px 0px; */
   display: flex;
   flex-direction: column;
+  /* margin-bottom: calc(env(safe-area-inset-bottom) * 1.5); */
   /* background: blue; */
   /* min-height: calc(100vh - 80px); */
-}
-
-.app-container {
-  height: 100%;
-  /* min-height: 100vh; */
-  /* width: 100%; */
-  /* position: relative; */
-  /* overflow-y: auto; */
-  /* margin-bottom: 100px; */
 }
 
 @media screen and (max-width: 700px) {
@@ -70,7 +114,7 @@ main {
   }
 
   main {
-    min-height: calc(100vh - 110px);
+    /* min-height: calc(100vh - 110px); */
   }
 }
 
