@@ -5,7 +5,7 @@
   justify-content: center;
   display: flex;
   flex-direction: row;
-  background: #cf000f;
+  /* background: #cf000f; */
 }
 
 @media screen and (max-width: 700px) {

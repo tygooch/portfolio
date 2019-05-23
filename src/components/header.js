@@ -58,10 +58,14 @@ const Header = () => (
     </div>
     <div className="social-links">
       <a href="https://linkedin.com/in/tygooch" className="social-link">
+        {/* <span className="social-link-icon"> */}
         <Icon iconName="linkedin-in" size="1x" top="3px" />
+        {/* </span> */}
       </a>
       <a href="https://github.com/tygooch" className="social-link">
+        {/* <span className="social-link-icon"> */}
         <Icon iconName="github" size="1x" />
+        {/* </span> */}
       </a>
       {/* <a href="https://facebook.com/tybradleygooch" className="social-link">
           <Icon iconName="facebook-f" size="2x" />

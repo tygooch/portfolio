@@ -6,9 +6,35 @@ import SEO from "../components/seo"
 import "./about.css"
 
 const Portfolio = () => (
-  <Layout>
+  <div className="about">
     <SEO title="Portfolio" />
-  </Layout>
+    <h1>work</h1>
+    <h1>work</h1>
+    <h1>work</h1>
+    <h1>work</h1>
+    <h1>work</h1>
+    <h1>work</h1>
+    <h1>work</h1>
+    <h1>work</h1>
+    <h1>work</h1>
+    <h1>work</h1>
+    <h1>work</h1>
+    <h1>work</h1>
+    <h1>work</h1>
+    <h1>work</h1>
+    <h1>work</h1>
+    <h1>work</h1>
+    <h1>work</h1>
+    <h1>work</h1>
+    <h1>work</h1>
+    <h1>work</h1>
+    <h1>work</h1>
+    <h1>work</h1>
+    <h1>work</h1>
+    <h1>work</h1>
+    <h1>work</h1>
+    <h1>Bottom</h1>
+  </div>
 )
 
 export default Portfolio

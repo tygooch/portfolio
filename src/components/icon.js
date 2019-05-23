@@ -6,19 +6,21 @@ const getIcon = iconName => {
   if (brandIcons.includes(iconName)) {
     return ["fab", iconName]
   } else {
-    return iconName
+    if (iconName.includes(" ")) {
+      return iconName.split(" ")
+    }
+    return ["far", iconName]
   }
 }
-const Icon = ({ iconName, size, top }) => (
+const Icon = ({ iconName, size, color, top }) => (
   <FontAwesomeIcon
     icon={getIcon(iconName)}
     style={{
-      position: "absolute",
-      color: "#000",
+      position: top ? "absolute" : "",
+      color: color ? color : "#000",
+      top: top ? top : "",
       width: "inherit",
       height: "inherit",
-      verticalAlign: "bottom",
-      top: top ? top : "",
     }}
     size={size ? size : "1x"}
     className="fa-fw"
