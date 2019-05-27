@@ -13,18 +13,24 @@ const getIcon = iconName => {
   }
 }
 const Icon = ({ iconName, size, color, top }) => (
-  <FontAwesomeIcon
-    icon={getIcon(iconName)}
+  <span
     style={{
-      position: top ? "absolute" : "",
-      color: color ? color : "#000",
-      top: top ? top : "",
-      width: "inherit",
-      height: "inherit",
+      fontSize: "12px",
     }}
-    size={size ? size : "1x"}
-    className="fa-fw"
-  />
+  >
+    <FontAwesomeIcon
+      icon={getIcon(iconName)}
+      style={{
+        position: top ? "absolute" : "",
+        color: color ? color : "#000",
+        top: top ? top : "",
+        width: "inherit",
+        height: "inherit",
+      }}
+      size={size ? size : "1x"}
+      className="fa-fw"
+    />
+  </span>
 )
 
 Icon.propTypes = {

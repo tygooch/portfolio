@@ -1,8 +1,6 @@
 import { Link } from "gatsby"
-// import AniLink from "gatsby-plugin-transition-link/AniLink"
 import React from "react"
 import "./footer.css"
-import Icon from "./icon.js"
 
 const Footer = ({ siteTitle }) => (
   <footer className="footer">

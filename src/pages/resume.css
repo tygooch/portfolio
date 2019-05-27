@@ -1,0 +1,228 @@
+@font-face {
+  font-family: 'Open Sans Light';
+  src: url('../../static/OpenSans-Light.ttf');
+}
+@font-face {
+  font-family: 'Open Sans Regular';
+  src: url('../../static/OpenSans-Regular.ttf');
+}
+@font-face {
+  font-family: 'Open Sans SemiBold';
+  src: url('../../static/OpenSans-SemiBold.ttf');
+}
+@font-face {
+  font-family: 'Open Sans Bold';
+  src: url('../../static/OpenSans-Bold.ttf');
+}
+@font-face {
+  font-family: 'Nexa Light';
+  src: url('../../static/NexaLight.otf');
+}
+@font-face {
+  font-family: 'Nexa Regular';
+  src: url('../../static/NexaRegular.otf');
+}
+@font-face {
+  font-family: 'Nexa XBold';
+  src: url('../../static/NexaXBold.otf');
+}
+@font-face {
+  font-family: 'Nexa Bold';
+  src: url('../../static/NexaBold.otf');
+}
+
+.resume-container {
+  width: 100%;
+  /* margin-top: 25px; */
+  display: flex;
+  flex-direction: column;
+}
+
+.resume-page {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-family: 'Open Sans Regular'
+}
+
+.k-pdf-export .svg-inline--fa {
+  vertical-align: 0;
+}
+
+@media screen and (max-width: 700px) {
+  .resume-page {
+    transform: scale(0.5);
+    transform-origin: top center;
+  }
+  .resume-container {
+    /* height: 100px;  */
+  }
+}
+
+.resume-pdf {
+    height: 792px;
+    width: 612px;
+    background-color: white;
+    box-shadow: -3px 5px 13px -3px rgba(0, 0, 0, 0.75);
+}
+
+h1 {
+  padding: 0px;
+  margin: 0px;
+}
+
+ul {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+  font-size: 0.75em;
+}
+
+#workExperienceList li:nth-child(1) {
+  padding-left: 0px !important;
+  /* font-weight: regular; */
+}
+
+#workExperienceList li:nth-child(1):before {
+  all: unset;
+}
+
+li {
+  font-size: 0.75em;
+}
+
+.list-header {
+  /* font-weight: 600; */
+}
+
+.list span {
+  /* font-weight: 300; */
+}
+
+.sublist {
+  /* font-weight: 300; */
+}
+
+.sublist li {
+  /* font-weight: 300; */
+  /* padding-left: 0.75em; */
+}
+
+.sublist li:before {
+  content: "-";
+  display: inline-block;
+  color: #cf000f;
+  /* font-weight: 400; */
+}
+
+.skills ul {
+  columns: 3;
+}
+
+.skills li {
+}
+
+.skills li:before {
+  /* font-weight: 600; */
+}
+
+.resume-header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 25px;
+  justify-content: space-around;
+  padding: 0.25in;
+  padding-bottom: 0;
+}
+
+.resume-header-name {
+  text-align: center;
+  font-size: 2em;
+  padding: 0px;
+  /* font-weight: 700; */
+}
+
+.resume-header-name-bold {
+}
+
+.resume-contact-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  box-sizing: border-box;
+}
+
+.resume-contact-info li {
+  cursor: pointer;
+  display: inline-block;
+}
+
+.resume-contact-info li .fa-li {
+  position: static;
+  /* margin-right: 5px; */
+}
+.icon::before {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+
+.resume-contact {
+  text-align: left;
+  max-width: 33%;
+}
+
+.resume-body {
+  padding: 0px 0.25in;
+  font-size: 1em;
+}
+
+.body-header {
+  color: #cf000f;
+  /* line-height: 16px; */
+  /* font-weight: 400; */
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.body-header-line {
+  height: 10px;
+  position: relative;
+  bottom: 6px;
+  padding: 0px;
+  margin: 0px;
+}
+.resume-footer {
+  /* margin-top: 25px; */
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  padding: 10px 0px;
+}
+
+.resume-footer-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  box-sizing: border-box;
+}
+
+.resume-footer-links li {
+  cursor: pointer;
+  display: inline-block;
+}
+
+.resume-footer-links li .fa-li {
+  position: static;
+  /* margin-right: 5px; */
+}
+
+.fa-ul {
+  margin-left: 0px;
+}

@@ -1,39 +1,46 @@
 import React from "react"
 
-import Layout from "../components/layout"
+import { graphql } from "gatsby"
+import Img from "gatsby-image"
 import SEO from "../components/seo"
 
 import "./about.css"
 
-const Portfolio = () => (
+export const squareImage = graphql`
+  fragment squareImage on File {
+    childImageSharp {
+      fluid(maxWidth: 600) {
+        ...GatsbyImageSharpFluid_noBase64
+      }
+    }
+  }
+`
+
+export const staticQuery = graphql`
+  query {
+    imageOne: file(relativePath: { eq: "ucsbMapIphoneImage.png" }) {
+      ...squareImage
+    }
+    imageTwo: file(relativePath: { eq: "ivEmergencyDispatchImage.png" }) {
+      ...squareImage
+    }
+    imageThree: file(relativePath: { eq: "ucsbMapMacImage.png" }) {
+      ...squareImage
+    }
+  }
+`
+
+const Portfolio = props => (
   <div className="about">
     <SEO title="Portfolio" />
-    <h1>work</h1>
-    <h1>work</h1>
-    <h1>work</h1>
-    <h1>work</h1>
-    <h1>work</h1>
-    <h1>work</h1>
-    <h1>work</h1>
-    <h1>work</h1>
-    <h1>work</h1>
-    <h1>work</h1>
-    <h1>work</h1>
-    <h1>work</h1>
-    <h1>work</h1>
-    <h1>work</h1>
-    <h1>work</h1>
-    <h1>work</h1>
-    <h1>work</h1>
-    <h1>work</h1>
-    <h1>work</h1>
-    <h1>work</h1>
-    <h1>work</h1>
-    <h1>work</h1>
-    <h1>work</h1>
-    <h1>work</h1>
-    <h1>work</h1>
-    <h1>Bottom</h1>
+
+    <Img fluid={props.data.imageOne.childImageSharp.fluid} fadeIn={false} />
+    <Img fluid={props.data.imageTwo.childImageSharp.fluid} />
+    <Img fluid={props.data.imageThree.childImageSharp.fluid} />
+
+    <Img fluid={props.data.imageOne.childImageSharp.fluid} />
+    <Img fluid={props.data.imageTwo.childImageSharp.fluid} />
+    <Img fluid={props.data.imageThree.childImageSharp.fluid} />
   </div>
 )
 

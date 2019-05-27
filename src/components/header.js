@@ -1,30 +1,19 @@
-import { Link } from "gatsby"
-// import AniLink from "gatsby-plugin-transition-link/AniLink"
-import PropTypes from "prop-types"
 import React from "react"
+import { Link } from "gatsby"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+
 import Icon from "./icon"
 import logo from "../images/logo2.svg"
 import "./header.css"
 
 const Header = () => (
   <header className="header">
-    <Link
-      to="/"
-      activeStyle={{ color: "#CF000F", transition: "all 0.75s linear" }}
-      activeClassName="header-logo-active"
-      className="header-logo"
-      exit={{
-        length: 0.75,
-      }}
-      entry={{
-        delay: 0.75,
-      }}
-    >
-      <img src={logo} alt="" />
+    <Link to="/" className="header-logo">
+      TY GOOCH
     </Link>
     <div className="header-links">
       <Link
-        to="/about/"
+        to="/about"
         className="header-link"
         activeStyle={{ color: "#CF000F", transition: "all 0.75s linear" }}
         activeClassName="active"
@@ -32,7 +21,7 @@ const Header = () => (
         <span className="header-link-text">ABOUT</span>
       </Link>
       <Link
-        to="/portfolio/"
+        to="/portfolio"
         className="header-link"
         activeStyle={{ color: "#CF000F", transition: "all 0.75s linear" }}
         activeClassName="active"
@@ -40,7 +29,7 @@ const Header = () => (
         <span className="header-link-text">PORTFOLIO</span>
       </Link>
       <Link
-        to="/resume/"
+        to="/resume"
         className="header-link"
         activeStyle={{ color: "#CF000F", transition: "all 0.75s linear" }}
         activeClassName="active"
@@ -48,7 +37,7 @@ const Header = () => (
         <span className="header-link-text">RESUME</span>
       </Link>
       <Link
-        to="/contact/"
+        to="/contact"
         className="header-link"
         activeStyle={{ color: "#CF000F", transition: "all 0.75s linear" }}
         activeClassName="active"
@@ -59,12 +48,12 @@ const Header = () => (
     <div className="social-links">
       <a href="https://linkedin.com/in/tygooch" className="social-link">
         {/* <span className="social-link-icon"> */}
-        <Icon iconName="linkedin-in" size="1x" top="3px" />
+        <FontAwesomeIcon icon={["fab", "linkedin-in"]} size="1x" fixedWidth />
         {/* </span> */}
       </a>
       <a href="https://github.com/tygooch" className="social-link">
         {/* <span className="social-link-icon"> */}
-        <Icon iconName="github" size="1x" />
+        <FontAwesomeIcon icon={["fab", "github"]} size="1x" fixedWidth />
         {/* </span> */}
       </a>
       {/* <a href="https://facebook.com/tybradleygooch" className="social-link">
@@ -73,13 +62,5 @@ const Header = () => (
     </div>
   </header>
 )
-
-// Header.propTypes = {
-//   siteTitle: PropTypes.string,
-// }
-
-// Header.defaultProps = {
-//   siteTitle: ``,
-// }
 
 export default Header
