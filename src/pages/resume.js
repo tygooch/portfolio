@@ -4,6 +4,7 @@ import canvg from "canvg"
 import { PDFExport } from "@progress/kendo-react-pdf"
 
 import SEO from "../components/seo"
+import Layout from "../components/layout"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 // import "@fortawesome/fontawesome-pro/svgs/regular/mobile-alt.svg"
 
@@ -36,24 +37,27 @@ class Resume extends React.Component {
       <>
         <SEO title="Resume" />
         <div className="resume-container">
-          {process.env.NODE_ENV === "development" && (
-            <button
-              onClick={this.exportPDF}
-              style={{
-                width: 50,
-              }}
+          <div className="resume-download">
+            {false && process.env.NODE_ENV === "development" && (
+              <button
+                onClick={this.exportPDF}
+                style={{
+                  width: 50,
+                }}
+              >
+                <FontAwesomeIcon icon="download" />
+                Save PDF
+              </button>
+            )}
+            <a
+              rel="noopener noreferrer"
+              href={withPrefix("/TyGoochResume.pdf")}
+              target="_blank"
             >
               <FontAwesomeIcon icon="download" />
-              Save PDF
-            </button>
-          )}
-          <a
-            rel="noopener noreferrer"
-            href={withPrefix("/TyGoochResume.pdf")}
-            target="_blank"
-          >
-            Click For PDF
-          </a>
+              Click For PDF
+            </a>
+          </div>
           <div className="resume-page">
             <PDFExport
               paperSize={"Letter"}

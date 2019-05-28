@@ -15,7 +15,7 @@ const Header = () => (
       <Link
         to="/about"
         className="header-link"
-        activeStyle={{ color: "#CF000F", transition: "all 0.75s linear" }}
+        activeStyle={{ color: "#ce2d2d", transition: "all 0.75s linear" }}
         activeClassName="active"
       >
         <span className="header-link-text">ABOUT</span>
@@ -23,7 +23,7 @@ const Header = () => (
       <Link
         to="/portfolio"
         className="header-link"
-        activeStyle={{ color: "#CF000F", transition: "all 0.75s linear" }}
+        activeStyle={{ color: "#ce2d2d", transition: "all 0.75s linear" }}
         activeClassName="active"
       >
         <span className="header-link-text">PORTFOLIO</span>
@@ -31,7 +31,7 @@ const Header = () => (
       <Link
         to="/resume"
         className="header-link"
-        activeStyle={{ color: "#CF000F", transition: "all 0.75s linear" }}
+        activeStyle={{ color: "#ce2d2d", transition: "all 0.75s linear" }}
         activeClassName="active"
       >
         <span className="header-link-text">RESUME</span>
@@ -39,7 +39,7 @@ const Header = () => (
       <Link
         to="/contact"
         className="header-link"
-        activeStyle={{ color: "#CF000F", transition: "all 0.75s linear" }}
+        activeStyle={{ color: "#ce2d2d", transition: "all 0.75s linear" }}
         activeClassName="active"
       >
         <span className="header-link-text">CONTACT</span>

@@ -5,6 +5,7 @@
   padding-right: env(safe-area-inset-right);
   margin: 0px;
   padding: 15px;
+  padding-bottom: 0px;
   /* margin-top: 5px;  */
   display: flex;
   flex-direction: row;
@@ -43,7 +44,7 @@
   position: relative;
   padding: 10px 0px;
   /* bottom: 2px; */
-  font-weight: 300;
+  font-weight: 400;
   /* font-size: 18px; */
   color: black;
   height: 1em;
@@ -53,7 +54,7 @@
 }
 
 .header-link.active {
-  /* color: #CF000F; */
+  /* color: #ce2d2d; */
   transition: all 0.75s linear;
 }
 
@@ -84,7 +85,7 @@
   height: 2px;
   bottom: 4px;
   left: 0;
-  background-color: #cf000f;
+  background-color: #ce2d2d;
   visibility: hidden;
   -webkit-transform: scaleX(0);
   transform: scaleX(0);

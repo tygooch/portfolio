@@ -6,9 +6,9 @@ import SEO from "../components/seo"
 import "./about.css"
 
 const Contact = () => (
-  <Layout>
+  <div key="contact">
     <SEO title="Contact" />
-  </Layout>
+  </div>
 )
 
 export default Contact

@@ -32,13 +32,16 @@
 }
 
 .resume-container {
-  width: 100%;
+  margin: 0px auto;
+  /* width: 100%; */
   /* margin-top: 25px; */
   display: flex;
   flex-direction: column;
+  
 }
 
 .resume-page {
+  max-width: 612px;
   width: 100%;
   height: 100%;
   display: flex;
@@ -55,6 +58,8 @@
   .resume-page {
     transform: scale(0.5);
     transform-origin: top center;
+    width: 305.5px;
+    height: 396px;
   }
   .resume-container {
     /* height: 100px;  */
@@ -62,10 +67,16 @@
 }
 
 .resume-pdf {
+    position: relative;
     height: 792px;
     width: 612px;
     background-color: white;
     box-shadow: -3px 5px 13px -3px rgba(0, 0, 0, 0.75);
+}
+
+.resume-download {
+  justify-content: center;
+  display: flex;
 }
 
 h1 {
@@ -113,7 +124,7 @@ li {
 .sublist li:before {
   content: "-";
   display: inline-block;
-  color: #cf000f;
+  color: #ce2d2d;
   /* font-weight: 400; */
 }
 
@@ -183,7 +194,7 @@ li {
 }
 
 .body-header {
-  color: #cf000f;
+  color: #ce2d2d;
   /* line-height: 16px; */
   /* font-weight: 400; */
   width: 100%;

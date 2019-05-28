@@ -1,9 +1,13 @@
 .home-container {
-  margin-top: auto;
-  margin-bottom: auto;
+  /* margin-top: auto;
+  margin-bottom: auto; */
   justify-content: center;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  flex: 1;
+  margin: 0px auto;
   /* height: calc(100vh - 145px); */
 }
 
@@ -17,10 +21,9 @@
   line-height: 1.75em;
   display: flex;
   flex-direction: column;
-  position: relative;
-  height: inherit;
+  /* position: relative; */
+  /* height: 100%; */
   max-width: 400px;
-  justify-content: center;
   background: none;
   color: black;
 }
@@ -62,11 +65,11 @@
 }
 
 .home-link:last-child {
-  background-color: #cf000f;
+  background-color: #ce2d2d;
 }
 
 .home-link:first-child:hover {
-  color: #cf000f;
+  color: #ce2d2d;
   font-weight: 400;
 }
 

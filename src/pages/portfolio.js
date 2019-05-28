@@ -3,8 +3,9 @@ import React from "react"
 import { graphql } from "gatsby"
 import Img from "gatsby-image"
 import SEO from "../components/seo"
+import Layout from "../components/layout"
 
-import "./about.css"
+import "./portfolio.css"
 
 export const squareImage = graphql`
   fragment squareImage on File {
@@ -31,16 +32,17 @@ export const staticQuery = graphql`
 `
 
 const Portfolio = props => (
-  <div className="about">
+  <div className="portfolio">
     <SEO title="Portfolio" />
-
-    <Img fluid={props.data.imageOne.childImageSharp.fluid} fadeIn={false} />
-    <Img fluid={props.data.imageTwo.childImageSharp.fluid} />
-    <Img fluid={props.data.imageThree.childImageSharp.fluid} />
-
-    <Img fluid={props.data.imageOne.childImageSharp.fluid} />
-    <Img fluid={props.data.imageTwo.childImageSharp.fluid} />
-    <Img fluid={props.data.imageThree.childImageSharp.fluid} />
+    {/* <h1>Work</h1> */}
+    <div className="portfolio-images">
+      <Img fluid={props.data.imageOne.childImageSharp.fluid} fadeIn={false} />
+      <Img fluid={props.data.imageTwo.childImageSharp.fluid} />
+      <Img fluid={props.data.imageThree.childImageSharp.fluid} />
+      <Img fluid={props.data.imageOne.childImageSharp.fluid} />
+      <Img fluid={props.data.imageTwo.childImageSharp.fluid} />
+      <Img fluid={props.data.imageThree.childImageSharp.fluid} />
+    </div>
   </div>
 )
 

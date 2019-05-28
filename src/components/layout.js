@@ -29,7 +29,7 @@ const Layout = ({ children }) => (
         }
       }
     `}
-    render={data => <div className="content">{children}</div>}
+    render={data => <div>{children}</div>}
   />
 )
 
