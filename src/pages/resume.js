@@ -33,31 +33,72 @@ class Resume extends React.Component {
   }
 
   render() {
+    const resumeContent = {
+      experience: [
+        {
+          title: "Software Engineer Intern",
+          location: "UCSB Enterprise Technology Services",
+          date: "May 2018 - Current",
+          details:
+            "Currently leading frontend development on the Identity & Access Management team. Responsibilities include the design, implementation, and testing of new features for our web apps written in Aurelia JS alongside maintaining/updating legacy code to conform with latest standards. Accomplishments include releasing a major UI redesign, overhauling our dev environment to get HMR working between our Spring Boot templates and Webpack dev server, and rewriting legacy PHP services in Aurelia JS.",
+        },
+      ],
+      projects: [
+        {
+          title: "UCSB Map",
+          subtitle: "Interactive online map of the UCSB campus",
+          url: "https://github.com/TyGooch/ucsb-map",
+          details: [
+            "Full stack web app built with React/Redux, Leaflet.js, Spring Boot, and MongoDB",
+            "Features a fully responsive UI, custom styled map tiles, an easy to use search tool, and interior floorplans to make finding rooms easier than ever",
+            "Integrates easily with UCSB online schedules via a chrome extension, allowing students to view classroom locations with one click",
+          ],
+        },
+        {
+          title: "Amazon Giveaway Bot",
+          subtitle: "Open source JS script to automate Amazon Giveaway entries",
+          url: "https://github.com/TyGooch/amazon-giveaway-bot",
+          details: [
+            "Uses JavaScript to scrape data from giveaway listings and interact with DOM elements",
+            "Bypasses client-side validation to force entry into giveaways without fulfilling entry requirements",
+            "Automatically solves CAPTCHAs to evade bot detection",
+          ],
+        },
+        {
+          title: "Isla Vista Emergency Map",
+          subtitle: "Real time emergency information with live updates",
+          url: "https://github.com/TyGooch/iv-emergency-map",
+          details: [
+            "Full stack web app built with React/Redux, Express.js, Google Maps, and MongoDB",
+            "Streams live tweets from SB County Fire using the Twitter API which ",
+            "Accounts for typos and invalid addresses before converting locations into map markers using Google Maps API",
+          ],
+        },
+      ],
+      skills: [
+        "JavaScript, jQuery",
+        "React.js, Redux",
+        "Node.js,",
+        "Webpack",
+        "Aurelia.js",
+        "Express.js",
+        "MongoDB, PostgreSQL",
+        "HTML, CSS, Sass",
+        "Google Maps, Leaflet.js",
+      ],
+      education: [
+        {
+          title: "UC Santa Barbara - Computer Science Engineering (2019)",
+          details:
+            "Coursework focused on data structures and algorithms, software development, and discrete mathematics",
+        },
+      ],
+    }
+
     return (
       <>
         <SEO title="Resume" />
         <div className="resume-container">
-          <div className="resume-download">
-            {false && process.env.NODE_ENV === "development" && (
-              <button
-                onClick={this.exportPDF}
-                style={{
-                  width: 50,
-                }}
-              >
-                <FontAwesomeIcon icon="download" />
-                Save PDF
-              </button>
-            )}
-            <a
-              rel="noopener noreferrer"
-              href={withPrefix("/TyGoochResume.pdf")}
-              target="_blank"
-            >
-              <FontAwesomeIcon icon="download" />
-              Click For PDF
-            </a>
-          </div>
           <div className="resume-page">
             <PDFExport
               paperSize={"Letter"}
@@ -75,150 +116,55 @@ class Resume extends React.Component {
               <canvas ref="canvas" style={{ display: "none" }} />
               <div className="resume-pdf">
                 <div className="resume-header">
-                  <div className="resume-header-name">
-                    TY <span className="resume-header-name-bold">GOOCH</span>
-                  </div>
+                  <div className="resume-header-name">Ty Gooch</div>
                   <ul className="resume-contact-info">
-                    <li>
-                      <FontAwesomeIcon icon="mobile-alt" listItem />
-                      (805) 705-6502
-                    </li>
-                    <li>
-                      <FontAwesomeIcon icon="envelope-open" listItem />
-                      gooch.ty@gmail.com
-                    </li>
-                    <li>
-                      <FontAwesomeIcon icon="home" listItem />
-                      Santa Barbara, CA
-                    </li>
+                    <li>805-705-6502</li>
+                    <li>https://tygoo.ch</li>
+                    <li>gooch.ty@gmail.com</li>
                   </ul>
                 </div>
 
                 <div className="resume-body">
-                  <div className="work-experience">
-                    <div className="body-header">EXPERIENCE</div>
-                    <ul className="list">
-                      <li className="list-header">
-                        Software Engineer Intern -{" "}
-                        <span>
-                          <span>
-                            UCSB Enterprise Technology Services (2018 - present)
-                          </span>
-                        </span>
-                        <ul className="sublist" id="workExperienceList">
-                          <li>aaa</li>
-                        </ul>
-                        <ul className="sublist">
-                          <li>
-                            Built modules in Aurelia.js and vanilla JavaScript
-                            for UCSB's Identity Management web applications
-                          </li>
-                        </ul>
-                      </li>
-                    </ul>
+                  <div className="resume-section-header">
+                    EMPLOYMENT HISTORY
                   </div>
+                  {resumeContent.experience.map(el => (
+                    <div>
+                      <div className="experience-title">
+                        {el.title} - {el.location}
+                      </div>
+                      <div className="experience-details">{el.details}</div>
+                    </div>
+                  ))}
 
-                  <br />
+                  <div className="resume-section-header">PROJECTS</div>
+                  {resumeContent.projects.map(el => {
+                    return (
+                      <div>
+                        <div className="experience-title">
+                          {el.title} - {el.url}
+                        </div>
+                        <div className="experience-details">
+                          {el.details.map(el => (
+                            <div>{el}</div>
+                          ))}
+                        </div>
+                      </div>
+                    )
+                  })}
 
-                  <div className="projects">
-                    <div className="body-header">PROJECTS</div>
-                    <ul className="list">
-                      <li className="list-header">
-                        UCSBMap.com -{" "}
-                        <span>Interactive online map of the UCSB campus</span>
-                        <ul className="sublist">
-                          <li>
-                            Full stack web app built with Java Spring, MongoDB,
-                            React/Redux and Leaflet.js
-                          </li>
-                          <li>
-                            Used open source GIS resources to collect highly
-                            accurate GeoJSON data of UCSB buildings and
-                            interiors
-                          </li>
-                          <li>
-                            Developed chrome extension UCSB Map For GOLD that
-                            allows students to easily view their className
-                            locations on ucsbmap.com with one click from their
-                            online schedule
-                          </li>
-                        </ul>
-                      </li>
-                      <li>
-                        Isla Vista Emergency Map -{" "}
-                        <span>
-                          Emergency dispatch visualization with live updates
-                        </span>
-                        <ul className="sublist">
-                          <li>
-                            Full stack JavaScipt web app built with Express.js,
-                            Twitter API, and MongoDB on the backend and
-                            React/Redux and Google Maps API on the frontend
-                          </li>
-                          <li>
-                            Server side JavaScipt runs a Twitter livestream,
-                            parsing tweets to store emergency data
-                          </li>
-                          <li>
-                            Used Python to scrape 94,000 tweets, allowing users
-                            to view all emergencies in Isla Vista since March
-                            2009
-                          </li>
-                        </ul>
-                      </li>
-                      <li>
-                        Caltrain Live -{" "}
-                        <span>Map of real time CalTrain vehicle locations</span>
-                        <ul className="sublist">
-                          <li>
-                            Uses JavaScript, jQuery, and Leaflet to add an
-                            interactive layer to Google Maps tiles
-                          </li>
-                          <li>
-                            Client side JavaScript determines approximate
-                            geographic locations of trains
-                          </li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </div>
+                  <div className="resume-section-header">SKILLS</div>
+                  {resumeContent.skills.map(el => (
+                    <div>{el}</div>
+                  ))}
 
-                  <br />
-
-                  <div className="skills">
-                    <div className="body-header">SKILLS</div>
-                    <ul className="list">
-                      <li className="list-header">JavaScript (ES9), jQuery</li>
-                      <li>Node.js</li>
-                      <li>React.js, Redux</li>
-                      <li>Express.js</li>
-                      <li>Ruby, Ruby on Rails</li>
-                      <li>MongoDB, PostgreSQL</li>
-                      <li>Leaflet.js, Google Maps</li>
-                      <li>GIS</li>
-                      <li>HTML, CSS</li>
-                    </ul>
-                  </div>
-
-                  <br />
-
-                  <div className="education">
-                    <div className="body-header">EDUCATION</div>
-                    <ul className="list">
-                      <li className="list-header">
-                        UC Santa Barbara -{" "}
-                        <span>Computer Science Engineering (2019)</span>
-                        <ul className="sublist">
-                          <li>
-                            Pursing B.S. degree. Coursework includes Python/C++
-                            programming, data structures and algorithms,
-                            computer architecture, assembly language, and
-                            discrete mathematics
-                          </li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </div>
+                  <div className="resume-section-header">EDUCATION</div>
+                  {resumeContent.education.map(el => (
+                    <div>
+                      <div>{el.title}</div>
+                      <div>{el.details}</div>
+                    </div>
+                  ))}
                 </div>
 
                 <div className="resume-footer">
@@ -250,6 +196,27 @@ class Resume extends React.Component {
                 </div>
               </div>
             </PDFExport>
+          </div>
+          <div className="resume-download">
+            {process.env.NODE_ENV === "development" && (
+              <button
+                onClick={this.exportPDF}
+                style={{
+                  width: 50,
+                }}
+              >
+                <FontAwesomeIcon icon="download" />
+                Save PDF
+              </button>
+            )}
+            <a
+              rel="noopener noreferrer"
+              href={withPrefix("/TyGoochResume.pdf")}
+              target="_blank"
+            >
+              <FontAwesomeIcon icon="download" />
+              Click For PDF
+            </a>
           </div>
         </div>
       </>
