@@ -3,14 +3,14 @@ import { Link } from "gatsby"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 import Icon from "./icon"
-import logo from "../images/logo2.svg"
+import Logo from "../assets/header-logo.svg"
 import "./header.css"
 
 const Header = () => (
   <>
     <header className="header-desktop">
       <Link to="/" className="header-logo">
-        <span className="header-logo-text">TY GOOCH</span>
+        <Logo height="100%" />
       </Link>
       <div className="header-links">
         <Link
