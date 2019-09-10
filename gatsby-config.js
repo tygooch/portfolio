@@ -42,12 +42,20 @@ module.exports = {
         },
       },
     },
-    // `gatsby-plugin-transition-link`,
-    // {
+    {
+      resolve: "gatsby-plugin-web-font-loader",
+      options: {
+        typekit: {
+          id: "ghj8ubu",
+        },
+      },
+    },
+    `gatsby-plugin-offline`,
+
+    // { // `gatsby-plugin-transition-link`,
     //   resolve: `gatsby-plugin-layout`,
     // },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
-    `gatsby-plugin-offline`,
   ],
 }

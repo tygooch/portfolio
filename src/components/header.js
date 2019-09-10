@@ -1,114 +1,121 @@
-import React from "react"
+import React, { useState, useContext } from "react"
 import { Link } from "gatsby"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { fallDown as Menu } from "react-burger-menu"
+import "hamburgers/dist/hamburgers.min.css"
 
-import Icon from "./icon"
-import Logo from "../assets/header-logo.svg"
+import Logo from "../assets/headerLogo.svg"
 import "./header.css"
 
-const Header = () => (
-  <>
-    <header className="header-desktop">
-      <Link to="/" className="header-logo">
-        <Logo height="100%" />
-      </Link>
-      <div className="header-links">
-        <Link
-          to="/about"
-          className="header-link"
-          activeStyle={{ color: "#ce2d2d", transition: "all 0.75s linear" }}
-          activeClassName="active"
-        >
-          <span className="header-link-text">ABOUT</span>
+const HeaderCtx = React.createContext()
+
+const Header = () => {
+  const [menuOpenState, setMenuOpenState] = useState(false)
+
+  return (
+    <HeaderCtx.Provider
+      value={{
+        isMenuOpen: menuOpenState,
+        toggleMenu: () => setMenuOpenState(!menuOpenState),
+        closeMenu: () => setMenuOpenState(false),
+        stateChangeHandler: newState => setMenuOpenState(newState.isOpen),
+      }}
+    >
+      <Navigation />
+    </HeaderCtx.Provider>
+  )
+}
+
+const Hamburger = () => {
+  const ctx = useContext(HeaderCtx)
+  return (
+    <button
+      id="hamburger"
+      className={
+        ctx.isMenuOpen
+          ? "hamburger hamburger--elastic is-active"
+          : "hamburger hamburger--elastic"
+      }
+      type="button"
+      onClick={ctx.toggleMenu}
+    >
+      <span className="hamburger-box">
+        <span className="hamburger-inner" />
+      </span>
+    </button>
+  )
+}
+
+const Navigation = () => {
+  const ctx = useContext(HeaderCtx)
+
+  return (
+    <>
+      <header className="header">
+        <Link to="/" className="header-logo" onClick={ctx.closeMenu}>
+          <Logo height="30px" fill={ctx.isMenuOpen ? "#fff" : "#000"} />
+          {/* <span>tygooch</span> */}
         </Link>
-        <Link
-          to="/portfolio"
-          className="header-link"
-          activeStyle={{ color: "#ce2d2d", transition: "all 0.75s linear" }}
-          activeClassName="active"
-        >
-          <span className="header-link-text">PORTFOLIO</span>
-        </Link>
-        <Link
-          to="/resume"
-          className="header-link"
-          activeStyle={{ color: "#ce2d2d", transition: "all 0.75s linear" }}
-          activeClassName="active"
-        >
-          <span className="header-link-text">RESUME</span>
-        </Link>
-        <Link
-          to="/contact"
-          className="header-link"
-          activeStyle={{ color: "#ce2d2d", transition: "all 0.75s linear" }}
-          activeClassName="active"
-        >
-          <span className="header-link-text">CONTACT</span>
-        </Link>
-      </div>
-      <div className="social-links">
-        <a href="https://linkedin.com/in/tygooch" className="social-link">
-          <FontAwesomeIcon icon={["fab", "linkedin-in"]} size="1x" fixedWidth />
-        </a>
-        <a href="https://github.com/tygooch" className="social-link">
-          <FontAwesomeIcon icon={["fab", "github"]} size="1x" fixedWidth />
-        </a>
-      </div>
-    </header>
-    <header className="header-mobile">
-      <div className="header-mobile-top">
-        <Link to="/" className="header-logo">
-          <span className="header-logo-text">TY GOOCH</span>
-        </Link>
-        {/* <div className="social-links">
-          <a href="https://linkedin.com/in/tygooch" className="social-link">
-            <FontAwesomeIcon
-              icon={["fab", "linkedin-in"]}
-              size="1x"
-              fixedWidth
-            />
-          </a>
-          <a href="https://github.com/tygooch" className="social-link">
-            <FontAwesomeIcon icon={["fab", "github"]} size="1x" fixedWidth />
-          </a>
-        </div> */}
-      </div>
-      <div className="header-links">
-        <Link
-          to="/about"
-          className="header-link"
-          activeStyle={{ color: "#ce2d2d", transition: "all 0.75s linear" }}
-          activeClassName="active"
-        >
-          <span className="header-link-text">ABOUT</span>
-        </Link>
-        <Link
-          to="/portfolio"
-          className="header-link"
-          activeStyle={{ color: "#ce2d2d", transition: "all 0.75s linear" }}
-          activeClassName="active"
-        >
-          <span className="header-link-text">PORTFOLIO</span>
-        </Link>
-        <Link
-          to="/resume"
-          className="header-link"
-          activeStyle={{ color: "#ce2d2d", transition: "all 0.75s linear" }}
-          activeClassName="active"
-        >
-          <span className="header-link-text">RESUME</span>
-        </Link>
-        <Link
-          to="/contact"
-          className="header-link"
-          activeStyle={{ color: "#ce2d2d", transition: "all 0.75s linear" }}
-          activeClassName="active"
-        >
-          <span className="header-link-text">CONTACT</span>
-        </Link>
-      </div>
-    </header>
-  </>
-)
+        <div className="header-links">
+          <Link to="/about" className="header-link" activeClassName="active">
+            about
+          </Link>
+          <Link
+            to="/portfolio"
+            className="header-link"
+            activeClassName="active"
+          >
+            portfolio
+          </Link>
+          <Link to="/resume" className="header-link" activeClassName="active">
+            resume
+          </Link>
+          <Link to="/contact" className="header-link" activeClassName="active">
+            contact
+          </Link>
+        </div>
+        <div id="mobile-links">
+          <Hamburger />
+          <Menu
+            id={"mobileMenu"}
+            right
+            pageWrapId={"page-wrap"}
+            outerContainerId={"outer-container"}
+            isOpen={ctx.isMenuOpen}
+            onStateChange={state => ctx.stateChangeHandler(state)}
+            disableAutoFocus
+            width={"100vw"}
+            bodyClassName={"body-menu-open"}
+            customBurgerIcon={false}
+            customCrossIcon={false}
+            noOverlay
+          >
+            <div onClick={ctx.toggleMenu}>
+              <Link to="/about" className="menu-item" activeClassName="active">
+                about
+              </Link>
+              <Link
+                to="/portfolio"
+                className="menu-item"
+                activeClassName="active"
+              >
+                portfolio
+              </Link>
+              <Link to="/resume" className="menu-item" activeClassName="active">
+                resume
+              </Link>
+              <Link
+                to="/contact"
+                className="menu-item"
+                activeClassName="active"
+              >
+                contact
+              </Link>
+            </div>
+          </Menu>
+        </div>
+      </header>
+    </>
+  )
+}
 
 export default Header
