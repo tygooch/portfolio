@@ -9,7 +9,7 @@ const Footer = ({ siteTitle }) => (
         to="/about/"
         className="footer-link"
         activeStyle={{
-          color: "#CF000F",
+          color: "#ce2d2d",
           background: "#000",
           transition: "color 0.75s linear",
         }}
@@ -21,7 +21,7 @@ const Footer = ({ siteTitle }) => (
         to="/portfolio/"
         className="footer-link"
         activeStyle={{
-          color: "#CF000F",
+          color: "#ce2d2d",
           background: "#000",
           transition: "color 0.75s linear",
         }}
@@ -33,7 +33,7 @@ const Footer = ({ siteTitle }) => (
         to="/resume/"
         className="footer-link"
         activeStyle={{
-          color: "#CF000F",
+          color: "#ce2d2d",
           background: "#000",
           transition: "color 0.75s linear",
         }}
@@ -45,7 +45,7 @@ const Footer = ({ siteTitle }) => (
         to="/contact/"
         className="footer-link"
         activeStyle={{
-          color: "#CF000F",
+          color: "#ce2d2d",
           background: "#000",
           transition: "color 0.75s linear",
         }}

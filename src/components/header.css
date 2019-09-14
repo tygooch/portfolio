@@ -24,6 +24,18 @@ header {
   transition: all 0.75s linear;
 }
 
+path {
+  transition: fill 0.75s linear;
+}
+
+#headerLogoSVG path {
+  fill: #000;
+}
+
+#headerLogoSVG.alt path {
+  fill: #fff;
+}
+
 .header-links {
   display: flex;
   flex-direction: row;
@@ -88,7 +100,18 @@ header {
 }
 
 #mobileMenu {
-  z-index: 999999 !important;
+  position: absolute;
+  right: 0px;
+  z-index: 1100;
+  width: 100vw;
+  /* height: 200vh; */
+  overflow: hidden;
+  /* z-index: 999999 !important; */
+  /* position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0; */
 }
 /* Position and sizing of burger button */
 .bm-burger-button {

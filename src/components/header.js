@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import { fallDown as Menu } from "react-burger-menu"
 import "hamburgers/dist/hamburgers.min.css"
 
-import Logo from "../assets/headerLogo.svg"
+import Logo from "../assets/logoInline.svg"
 import "./header.css"
 
 const HeaderCtx = React.createContext()
@@ -32,8 +32,8 @@ const Hamburger = () => {
       id="hamburger"
       className={
         ctx.isMenuOpen
-          ? "hamburger hamburger--elastic is-active"
-          : "hamburger hamburger--elastic"
+          ? "hamburger hamburger--collapse is-active"
+          : "hamburger hamburger--collapse"
       }
       type="button"
       onClick={ctx.toggleMenu}
@@ -52,7 +52,11 @@ const Navigation = () => {
     <>
       <header className="header">
         <Link to="/" className="header-logo" onClick={ctx.closeMenu}>
-          <Logo height="30px" fill={ctx.isMenuOpen ? "#fff" : "#000"} />
+          <Logo
+            id="headerLogoSVG"
+            height="30px"
+            className={ctx.isMenuOpen ? "alt" : ""}
+          />
           {/* <span>tygooch</span> */}
         </Link>
         <div className="header-links">

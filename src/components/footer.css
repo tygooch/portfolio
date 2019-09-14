@@ -1,5 +1,4 @@
 .footer {
-  
   background: #000;
   width: 100vw;
   /* z-index: 999999; */
@@ -18,7 +17,7 @@
   /* height: 100px; */
 }
 
-.footer::after{
+.footer::after {
   content: "";
   position: fixed;
   bottom: 0px;
@@ -57,7 +56,7 @@
 }
 
 .footer-link.active {
-  color: #cf000f;
+  color: #ce2d2d;
 }
 
 .footer-link::after {

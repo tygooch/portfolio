@@ -140,6 +140,7 @@ main > span {
   /* position: relative; */
   display: flex;
   flex-direction: column;
+  /* max-width: 800px; */
 }
 
 @media screen and (max-width: 700px) {
