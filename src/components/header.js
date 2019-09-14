@@ -73,9 +73,9 @@ const Navigation = () => {
           <Link to="/resume" className="header-link" activeClassName="active">
             resume
           </Link>
-          <Link to="/contact" className="header-link" activeClassName="active">
+          {/* <Link to="/contact" className="header-link" activeClassName="active">
             contact
-          </Link>
+          </Link> */}
         </div>
         <div id="mobile-links">
           <Hamburger />
@@ -107,13 +107,13 @@ const Navigation = () => {
               <Link to="/resume" className="menu-item" activeClassName="active">
                 resume
               </Link>
-              <Link
+              {/* <Link
                 to="/contact"
                 className="menu-item"
                 activeClassName="active"
               >
                 contact
-              </Link>
+              </Link> */}
             </div>
           </Menu>
         </div>

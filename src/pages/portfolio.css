@@ -2,11 +2,39 @@
   margin: 0px auto;
   width: 100%;
   /* width: 612px; */
-  max-width: 800px;
+  max-width: 950px;
   /* margin-top: 25px; */
   display: flex;
   flex-direction: column;
   /* height: 100%; */
+}
+
+.portfolio-header {
+  display: flex;
+  margin-bottom: 25px;
+  /* width: 1px; */
+  /* width: 300px; */
+}
+
+.portfolio-header::before {
+  content: "01.";
+  display: flex;
+  color: #ce2d2d;
+  position: relative;
+  margin-right: 10px;
+}
+.portfolio-header:nth-of-type(2):before {
+  content: "02.";
+}
+.portfolio-header::after {
+  content: "";
+  display: flex;
+  height: 1px;
+  width: 300px;
+  background-color: #ce2d2d;
+  position: relative;
+  margin: auto 0px;
+  margin-left: 20px;
 }
 
 .project {
@@ -14,11 +42,14 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  /* background-color: #fff;
+  box-shadow: -3px 5px 13px -3px rgba(0, 0, 0, 0.75); */
+  margin-bottom: 25px;
   /* flex-wrap: wrap; */
 }
 
 .project-image {
-  width: 350px;
+  width: 500px;
 }
 
 .project-info {
@@ -29,25 +60,33 @@
   flex-direction: column;
 }
 
-.project-title {
-  margin-bottom: 15px;
-}
-
-.project-details {
-  margin-bottom: 15px;
+.project-title,
+.project-details,
+.project-tags {
+  margin-bottom: 10px;
 }
 
 .project-links {
-  font-size: 18px;
+  font-size: 1.5em;
+  /* margin-right: 15px; */
 }
 
-.project-links:first-child {
-  margin-right: 15px;
+.project-links:last-child {
+  /* margin-right: 0px; */
+}
+
+.other-projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  position: relative;
+  gap: 15px 15px;
+  margin-bottom: 25px;
+  height: 100%;
 }
 
 @media screen and (max-width: 775px) {
   .portfolio {
-    max-width: 375px;
+    max-width: 500px;
   }
   .project {
     flex-direction: column;
@@ -55,13 +94,16 @@
     margin-bottom: 15px;
   }
   .project-info {
-    max-width: 350px;
+    max-width: 100%;
   }
   .project:nth-child(odd) {
     flex-direction: column-reverse;
   }
   .project-image {
     display: none;
+  }
+  .project-image-mobile {
+    margin-bottom: 15px;
   }
 }
 @media screen and (min-width: 776px) {

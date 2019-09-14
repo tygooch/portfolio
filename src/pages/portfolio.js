@@ -3,6 +3,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import Img from "gatsby-image"
 import SEO from "../components/seo"
+import ProjectCard from "../components/projectCard"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 // import Layout from "../components/layout"
 
@@ -29,7 +30,7 @@ export const staticQuery = graphql`
     imageThree: file(relativePath: { eq: "ucsbMapMacImage.png" }) {
       ...squareImage
     }
-    imageFour: file(relativePath: { eq: "amazonGiveawayBot.png" }) {
+    imageFour: file(relativePath: { eq: "botShadow.png" }) {
       ...squareImage
     }
   }
@@ -38,66 +39,124 @@ export const staticQuery = graphql`
 const Portfolio = props => (
   <div className="portfolio">
     <SEO title="Portfolio" />
-    {/* <h1>Work</h1> */}
-    <div className="project">
-      <div className="project-image">
-        <Img fluid={props.data.imageOne.childImageSharp.fluid} />
+    {/* <h1>Featured Projects</h1> */}
+    <h1 className="portfolio-header">Featured Projects</h1>
+    <div className="featured-projects">
+      <div className="project">
+        <div className="project-image">
+          <Img fluid={props.data.imageFour.childImageSharp.fluid} />
+        </div>
+        <div className="project-info">
+          <h2 className="project-title">Amazon Giveaway Bot</h2>
+          <div className="project-image-mobile">
+            <Img fluid={props.data.imageFour.childImageSharp.fluid} />
+          </div>
+          <div className="project-details">
+            Chrome extension built with vanilla JS and Webpack that automates
+            entry into Amazon Giveaways. Features include CAPTCHA solving,
+            customizable filters, real-time notifications, and support for
+            multiple accounts. Bypasses client side validation to enter
+            giveaways without fulfilling time intensive entry requirements.
+          </div>
+          <div className="project-tags">
+            <span>JS</span>
+            <span>Webpack</span>
+          </div>
+          <div className="project-links">
+            <a
+              href="https://github.com/tygooch/amazon-giveaway-bot"
+              target="_blank"
+              style={{ marginRight: "15px" }}
+            >
+              <FontAwesomeIcon icon={["fab", "github"]} />
+            </a>
+            <a
+              href="https://github.com/tygooch/amazon-giveaway-bot"
+              target="_blank"
+            >
+              <FontAwesomeIcon icon={["far", "external-link"]} />
+            </a>
+          </div>
+        </div>
       </div>
-      <div className="project-info">
-        <h1 className="project-title">UCSB Map</h1>
-        <div className="project-image-mobile">
+      <div className="project">
+        <div className="project-info">
+          <h2 className="project-title">UCSB Map</h2>
+          <div className="project-image-mobile">
+            <Img fluid={props.data.imageOne.childImageSharp.fluid} />
+          </div>
+          <div className="project-details">
+            Full stack web app built with React/Redux, Leaflet.js, Java Spring
+            Boot, and MongoDB. Features a fully responsive UI, custom styled map
+            tiles, an easy to use search tool, and interior floorplans to make
+            finding rooms easier than ever. Integrates with UCSB online
+            schedules via a chrome extension, allowing students to view class
+            locations with one click.
+          </div>
+          <div className="project-links">
+            <a
+              href="https://github.com/tygooch/ucsb-map"
+              target="_blank"
+              style={{ marginRight: "15px" }}
+            >
+              <FontAwesomeIcon icon={["fab", "github"]} />
+            </a>
+            <a href="https://ucsbmap.com" target="_blank">
+              <FontAwesomeIcon icon={["far", "external-link"]} />
+            </a>
+          </div>
+        </div>
+        <div className="project-image">
           <Img fluid={props.data.imageOne.childImageSharp.fluid} />
-        </div>
-        <div className="project-details">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus
-          inventore voluptate dicta dolorem cumque sit magnam ex magni minima,
-          fugit quas repellendus quos, neque natus tempore blanditiis! Maiores,
-          voluptates pariatur.
-        </div>
-        <div className="project-links">
-          <a
-            href="https://github.com/tygooch/ucsb-map"
-            target="_blank"
-            style={{ marginRight: "15px" }}
-          >
-            <FontAwesomeIcon icon={["fab", "github"]} />
-          </a>
-          <a href="https://ucsbmap.com" target="_blank">
-            <FontAwesomeIcon icon={["far", "external-link"]} />
-          </a>
         </div>
       </div>
     </div>
-    <div className="project">
-      <div className="project-info">
-        <h1 className="project-title">Amazon Giveaway Bot</h1>
-        <div className="project-image-mobile">
-          <Img fluid={props.data.imageFour.childImageSharp.fluid} />
-        </div>
-        <div className="project-details">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus
-          inventore voluptate dicta dolorem cumque sit magnam ex magni minima,
-          fugit quas repellendus quos, neque natus tempore blanditiis! Maiores,
-          voluptates pariatur.
-        </div>
-        <div className="project-links">
-          <a
-            href="https://github.com/tygooch/amazon-giveaway-bot"
-            target="_blank"
-            style={{ marginRight: "15px" }}
-          >
-            <FontAwesomeIcon icon={["fab", "github"]} />
-          </a>
-          <a
-            href="https://github.com/tygooch/amazon-giveaway-bot"
-            target="_blank"
-          >
-            <FontAwesomeIcon icon={["far", "external-link"]} />
-          </a>
-        </div>
-      </div>
-      <div className="project-image">
-        <Img fluid={props.data.imageFour.childImageSharp.fluid} />
+
+    <h1 className="portfolio-header">Other Projects</h1>
+
+    <div>
+      <div className="other-projects">
+        <ProjectCard
+          github="https://github.com/tygooch/iv-emergency-map"
+          title="Isla Vista Emergency Map"
+          description="Real time map of emergencies reported by Santa Barbara County
+              Fire. Data is sourced from @SBCFireDispatch tweets."
+          tags={["React", "Express", "Google Maps API", "Twitter API"]}
+        />
+
+        <ProjectCard
+          github="https://github.com/tygooch/pastebin-scraper"
+          title="Pastebin Scraper"
+          description="Scrapes the latest Pastebin submissions to find pastes matching a given pattern."
+          tags={["Express", "Puppeteer", "JS", "MongoDB"]}
+        />
+        <ProjectCard
+          github="https://github.com/tygooch/amazon-account-creator"
+          title="Amazon Account Creator"
+          description="Puppeteer script that programatically creates Amazon Accounts. Features SMS account verification by linking accounts with a new Textnow number."
+          tags={["Express", "Puppeteer", "JS"]}
+        />
+
+        {/* <ProjectCard
+          github="https://github.com/tygooch/portfolio"
+          title="Personal Site"
+          description="Static React website built with Gatsby."
+          tags={["React", "Gatsby", "GraphQL"]}
+        />
+        <ProjectCard
+          github="https://github.com/tygooch/iv-emergency-map"
+          title="Isla Vista Emergency Map"
+          description="Real time map of emergencies reported by Santa Barbara County
+              Fire. Data is sourced from @SBCFireDispatch tweets."
+          tags={["React", "Express", "Google Maps API", "Twitter API"]}
+        />
+
+        <ProjectCard
+          github="https://github.com/tygooch/pastebin-scraper"
+          title="Pastebin Scraper"
+          description="Scrapes the latest Pastebin submissions to find pastes matching a given pattern."
+          tags={["Express", "Puppeteer", "JS"]}
+        /> */}
       </div>
     </div>
 
