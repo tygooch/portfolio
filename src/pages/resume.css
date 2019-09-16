@@ -33,6 +33,13 @@
 
 /* @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"); */
 
+.resume {
+  margin: 0px auto;
+  width: 100%;
+  max-width: 950px;
+  display: flex;
+  flex-direction: column;
+}
 .resume-container {
   margin: 0px auto;
   /* width: 100%; */
@@ -56,11 +63,12 @@
 }
 
 @media screen and (max-width: 700px) {
-  .resume-page {
+  .resume-container {
     transform: scale(0.5);
     transform-origin: top center;
-    width: 305.5px;
-    height: 396px;
+    max-width: 306px;
+    max-height: 396px;
+    /* height: 100%; */
   }
   .resume-container {
     /* height: 100px;  */
@@ -68,18 +76,20 @@
 }
 
 .resume-pdf {
+  display: flex;
+  flex-direction: column;
   position: relative;
   height: 792px;
   width: 612px;
   background-color: white;
   box-shadow: -3px 5px 13px -3px rgba(0, 0, 0, 0.75);
-  margin-bottom: 25px;
+  /* margin-bottom: 1em; */
 }
 
 .resume-download {
   justify-content: center;
   display: flex;
-  margin-bottom: 25px;
+  margin: 25px;
 }
 .resume-download-button {
   display: flex;
@@ -104,10 +114,10 @@
 .resume-header {
   display: flex;
   flex-direction: row;
-  margin-bottom: 25px;
+  /* margin-bottom: 1em; */
   justify-content: space-between;
   padding: 0.25in;
-  padding-bottom: 0;
+  padding-bottom: 1em;
 }
 
 .resume-header-name {
@@ -136,17 +146,20 @@
 }
 
 .resume-body {
+  flex: 1;
   padding: 0px 0.25in;
   font-size: 1em;
 }
 
 .resume-footer {
   /* margin-top: 25px; */
-  position: absolute;
+  /* position: absolute; */
   bottom: 0px;
   left: 0px;
   width: 100%;
-  padding: 10px 0px;
+  /* padding: 10px 0px; */
+  /* padding-top: 1em; */
+  margin-bottom: 10px;
 }
 
 .resume-footer-links {
@@ -192,7 +205,7 @@
   font-size: 18px;
   display: flex;
   /* width: 100%; */
-  margin-bottom: 5px;
+  margin-bottom: 0.25em;
   margin-left: 0px;
   padding-right: 10px;
 }
@@ -219,7 +232,7 @@
 
 .resume-section {
   margin: 0px 30px;
-  margin-bottom: 15px;
+  margin-bottom: 1em;
 }
 
 .experience-title {
@@ -231,14 +244,14 @@
 }
 
 .experience-subtitle {
-  font-family: "Roboto Light";
-  font-size: 14px;
+  font-family: "Roboto Medium";
+  font-size: 12px;
 }
 
 .experience-details {
   font-family: "Roboto Light";
   font-size: 12px;
-  margin-bottom: 5px;
+  margin-bottom: 0.25em;
   /* list-style: circle; */
   margin-left: 15px;
   /* padding-left: 15px; */

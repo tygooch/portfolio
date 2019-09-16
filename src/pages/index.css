@@ -1,3 +1,14 @@
+.home {
+  margin: 0px auto;
+  width: 100%;
+  /* width: 612px; */
+  /* max-width: 950px; */
+  /* margin-top: 25px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: calc(100vh - 200px);
+}
 .home-container {
   /* margin-top: auto;
   margin-bottom: auto; */

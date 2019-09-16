@@ -50,6 +50,12 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: `gatsby-plugin-layout`,
+      options: {
+        component: require.resolve(`./src/layouts/index.js`),
+      },
+    },
     `gatsby-plugin-offline`,
 
     // { // `gatsby-plugin-transition-link`,

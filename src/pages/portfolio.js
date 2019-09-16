@@ -135,38 +135,8 @@ const Portfolio = props => (
           description="Puppeteer script that programatically creates Amazon Accounts. Features SMS account verification by linking accounts with a new Textnow number."
           tags={["Express", "Puppeteer", "JS"]}
         />
-
-        {/* <ProjectCard
-          github="https://github.com/tygooch/portfolio"
-          title="Personal Site"
-          description="Static React website built with Gatsby."
-          tags={["React", "Gatsby", "GraphQL"]}
-        />
-        <ProjectCard
-          github="https://github.com/tygooch/iv-emergency-map"
-          title="Isla Vista Emergency Map"
-          description="Real time map of emergencies reported by Santa Barbara County
-              Fire. Data is sourced from @SBCFireDispatch tweets."
-          tags={["React", "Express", "Google Maps API", "Twitter API"]}
-        />
-
-        <ProjectCard
-          github="https://github.com/tygooch/pastebin-scraper"
-          title="Pastebin Scraper"
-          description="Scrapes the latest Pastebin submissions to find pastes matching a given pattern."
-          tags={["Express", "Puppeteer", "JS"]}
-        /> */}
       </div>
     </div>
-
-    {/* <div className="portfolio-images">
-      <Img fluid={props.data.imageOne.childImageSharp.fluid} />
-      <Img fluid={props.data.imageTwo.childImageSharp.fluid} />
-      <Img fluid={props.data.imageThree.childImageSharp.fluid} />
-      <Img fluid={props.data.imageOne.childImageSharp.fluid} />
-      <Img fluid={props.data.imageTwo.childImageSharp.fluid} />
-      <Img fluid={props.data.imageThree.childImageSharp.fluid} />
-    </div> */}
   </div>
 )
 
