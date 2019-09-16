@@ -1,6 +1,6 @@
 import React from "react"
 import { withPrefix } from "gatsby"
-import canvg from "canvg"
+// import canvg from "canvg"
 import { PDFExport } from "@progress/kendo-react-pdf"
 
 import SEO from "../components/seo"
@@ -14,23 +14,23 @@ class Resume extends React.Component {
   constructor() {
     super()
     this.state = {}
-    this.exportPDF = this.exportPDF.bind(this)
+    // this.exportPDF = this.exportPDF.bind(this)
   }
 
-  exportPDF() {
-    let canv = this.refs.canvas
-    canv.getContext("2d")
-    document.querySelectorAll(".resume-pdf svg").forEach(svg => {
-      canvg(canv, svg.outerHTML)
-      let domparser = new DOMParser()
-      let imgString = domparser.parseFromString(
-        `<img class="${svg.classList}" src="${canv.toDataURL("image/png")}" />`,
-        "text/html"
-      )
-      svg.replaceWith(imgString.querySelector("img"))
-    })
-    this.resume.save()
-  }
+  // exportPDF() {
+  //   let canv = this.refs.canvas
+  //   canv.getContext("2d")
+  //   document.querySelectorAll(".resume-pdf svg").forEach(svg => {
+  //     canvg(canv, svg.outerHTML)
+  //     let domparser = new DOMParser()
+  //     let imgString = domparser.parseFromString(
+  //       `<img class="${svg.classList}" src="${canv.toDataURL("image/png")}" />`,
+  //       "text/html"
+  //     )
+  //     svg.replaceWith(imgString.querySelector("img"))
+  //   })
+  //   this.resume.save()
+  // }
 
   render() {
     const resumeContent = {
@@ -40,45 +40,52 @@ class Resume extends React.Component {
           location: "UCSB Enterprise Technology Services",
           date: "May 2018 - Current",
           details:
-            "Currently leading frontend development on the Identity & Access Management team. Responsibilities include the design, implementation, and testing of new features for our web apps written in Aurelia JS alongside maintaining/updating legacy code to conform with latest standards. Accomplishments include releasing a major UI redesign, overhauling our dev environment to get HMR working between our Spring Boot templates and Webpack dev server, and rewriting legacy PHP services in Aurelia JS.",
+            "Lead frontend developer on the Identity & Access Management team. Responsibilities include the design, implementation, and testing of new features for our web apps written in Aurelia JS alongside maintaining/updating legacy code to conform with latest standards. Accomplishments include releasing a major UI redesign, overhauling our dev environment to get HMR working between our Spring Boot templates and Webpack dev server, and rewriting legacy PHP services in Aurelia JS.",
+        },
+        {
+          title: "Software Engineer Contractor",
+          location: "Grassp",
+          date: "November 2018 - May 2019",
+          details:
+            "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem a dolorum repudiandae et eos aperiam aliquam incidunt! Odit dolores dolore quisquam. Amet eius voluptate porro accusamus atque rerum autem unde!",
         },
       ],
       projects: [
         {
+          title: "Amazon Giveaway Bot",
+          subtitle: "Chrome extension to win Amazon Giveaways",
+          url: "https://github.com/TyGooch/amazon-giveaway-bot",
+          details: [
+            "Built with vanilla JS and Webpack",
+            "Features include CAPTCHA solving, customizable filters, and support for multiple accounts",
+            "Bypasses client side validation to enter giveaways without fulfilling time intensive entry requirements",
+          ],
+        },
+        {
           title: "UCSB Map",
-          subtitle: "Interactive online map of the UCSB campus",
+          subtitle: "Interactive map of the UCSB campus",
           url: "https://github.com/TyGooch/ucsb-map",
           details: [
-            "Full stack web app built with React/Redux, Leaflet.js, Spring Boot, and MongoDB",
+            "Built with React/Redux, Leaflet.js, Spring Boot, and MongoDB",
             "Features a fully responsive UI, custom styled map tiles, an easy to use search tool, and interior floorplans to make finding rooms easier than ever",
             "Integrates easily with UCSB online schedules via a chrome extension, allowing students to view classroom locations with one click",
           ],
         },
         {
-          title: "Amazon Giveaway Bot",
-          subtitle: "Open source JS script to automate Amazon Giveaway entries",
-          url: "https://github.com/TyGooch/amazon-giveaway-bot",
-          details: [
-            "Uses JavaScript to scrape data from giveaway listings and interact with DOM elements",
-            "Bypasses client-side validation to force entry into giveaways without fulfilling entry requirements",
-            "Automatically solves CAPTCHAs to evade bot detection",
-          ],
-        },
-        {
           title: "Isla Vista Emergency Map",
-          subtitle: "Real time emergency information with live updates",
+          subtitle: "Interactive map of IV emergencies",
           url: "https://github.com/TyGooch/iv-emergency-map",
           details: [
-            "Full stack web app built with React/Redux, Express.js, Google Maps, and MongoDB",
-            "Streams live tweets from SB County Fire using the Twitter API which ",
-            "Accounts for typos and invalid addresses before converting locations into map markers using Google Maps API",
+            "Built with React/Redux, Express.js, Google Maps, and MongoDB",
+            "Streams live tweets from SB County Fire using the Twitter API",
+            "Converts addresses from tweet content into map markers using Google Maps API",
           ],
         },
       ],
       skills: [
         "JavaScript, jQuery",
         "React.js, Redux",
-        "Node.js,",
+        "Node.js",
         "Webpack",
         "Aurelia.js",
         "Express.js",
@@ -88,7 +95,8 @@ class Resume extends React.Component {
       ],
       education: [
         {
-          title: "UC Santa Barbara - Computer Science Engineering (2019)",
+          title:
+            "UC Santa Barbara - Computer Science Engineering (2014 - 2019)",
           details:
             "Coursework focused on data structures and algorithms, software development, and discrete mathematics",
         },
@@ -119,52 +127,73 @@ class Resume extends React.Component {
                   <div className="resume-header-name">Ty Gooch</div>
                   <ul className="resume-contact-info">
                     <li>805-705-6502</li>
-                    <li>https://tygoo.ch</li>
                     <li>gooch.ty@gmail.com</li>
+                    <li>Santa Barbara, CA</li>
                   </ul>
                 </div>
 
                 <div className="resume-body">
                   <div className="resume-section-header">
+                    <span className="resume-section-header-number">01.</span>
                     EMPLOYMENT HISTORY
                   </div>
-                  {resumeContent.experience.map(el => (
-                    <div>
-                      <div className="experience-title">
-                        {el.title} - {el.location}
-                      </div>
-                      <div className="experience-details">{el.details}</div>
-                    </div>
-                  ))}
-
-                  <div className="resume-section-header">PROJECTS</div>
-                  {resumeContent.projects.map(el => {
-                    return (
+                  <div className="resume-section">
+                    {resumeContent.experience.map(el => (
                       <div>
                         <div className="experience-title">
-                          {el.title} - {el.url}
+                          {el.title} - {el.location}
                         </div>
-                        <div className="experience-details">
-                          {el.details.map(el => (
-                            <div>{el}</div>
-                          ))}
-                        </div>
+                        <div className="experience-details">{el.details}</div>
                       </div>
-                    )
-                  })}
+                    ))}
+                  </div>
 
-                  <div className="resume-section-header">SKILLS</div>
-                  {resumeContent.skills.map(el => (
-                    <div>{el}</div>
-                  ))}
+                  <div className="resume-section-header">
+                    <span className="resume-section-header-number">02.</span>
+                    PROJECTS
+                  </div>
+                  <div className="resume-section">
+                    {resumeContent.projects.map(el => {
+                      return (
+                        <div>
+                          <div className="experience-title">
+                            {/* {el.title} - {el.url} */}
+                            {el.title} - {el.subtitle}
+                          </div>
+                          <ul className="experience-details">
+                            {el.details.map(el => (
+                              <li>{el}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      )
+                    })}
+                  </div>
 
-                  <div className="resume-section-header">EDUCATION</div>
-                  {resumeContent.education.map(el => (
-                    <div>
-                      <div>{el.title}</div>
-                      <div>{el.details}</div>
-                    </div>
-                  ))}
+                  <div className="resume-section-header">
+                    <span className="resume-section-header-number">03.</span>
+                    SKILLS
+                  </div>
+                  <div className="resume-section">
+                    <ul className="skills">
+                      {resumeContent.skills.map(el => (
+                        <li>{el}</li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="resume-section-header">
+                    <span className="resume-section-header-number">04.</span>
+                    EDUCATION
+                  </div>
+                  <div className="resume-section">
+                    {resumeContent.education.map(el => (
+                      <div>
+                        <div className="experience-title">{el.title}</div>
+                        <div className="experience-details">{el.details}</div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
 
                 <div className="resume-footer">
@@ -172,24 +201,21 @@ class Resume extends React.Component {
                     <a href="https://github.com/tygooch">
                       <li>
                         <FontAwesomeIcon icon={["fab", "github"]} listItem />
-                        github.com/tygooch
+                        <span>github.com/tygooch</span>
                       </li>
                     </a>
 
-                    <a href="https://github.com/tygooch">
+                    <a href="https://tygooch.com">
                       <li>
                         <FontAwesomeIcon icon="globe" listItem />
-                        tygooch.com
+                        <span>tygooch.com</span>
                       </li>
                     </a>
 
                     <a href="https://linkedin.com/in/tygooch">
                       <li>
-                        <FontAwesomeIcon
-                          icon={["fab", "linkedin-in"]}
-                          listItem
-                        />
-                        linkedin.com/in/tygooch
+                        <FontAwesomeIcon icon={["fab", "linkedin"]} listItem />
+                        <span>linkedin.com/in/tygooch</span>
                       </li>
                     </a>
                   </ul>
@@ -198,7 +224,7 @@ class Resume extends React.Component {
             </PDFExport>
           </div>
           <div className="resume-download">
-            {process.env.NODE_ENV === "development" && (
+            {/* {process.env.NODE_ENV === "development" && (
               <button
                 onClick={this.exportPDF}
                 style={{
@@ -208,14 +234,14 @@ class Resume extends React.Component {
                 <FontAwesomeIcon icon="download" />
                 Save PDF
               </button>
-            )}
+            )} */}
             <a
               rel="noopener noreferrer"
               href={withPrefix("/TyGoochResume.pdf")}
               target="_blank"
             >
-              <FontAwesomeIcon icon="download" />
-              Click For PDF
+              <FontAwesomeIcon icon="file-download" />
+              Download PDF
             </a>
           </div>
         </div>

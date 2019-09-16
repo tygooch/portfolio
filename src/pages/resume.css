@@ -81,23 +81,12 @@
   display: flex;
 }
 
-h1 {
-  padding: 0px;
-  margin: 0px;
+.resume-page ul {
+  font-family: "Roboto Light";
+  font-size: 12px;
 }
 
-ul {
-  list-style: none;
-  padding: 0px;
-  margin: 0px;
-  font-size: 0.75em;
-}
-
-li {
-  font-size: 0.75em;
-}
-
-.skills ul {
+.skills {
   columns: 3;
 }
 
@@ -157,17 +146,32 @@ li {
 }
 
 .resume-footer-links {
+  margin: 0px 24px;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   box-sizing: border-box;
 }
 
 .resume-footer-links li {
   cursor: pointer;
   display: inline-block;
+  font-family: "Roboto Light";
+  font-size: 12px;
+  display: flex;
+  /* height: 25px; */
+  margin: 0px auto;
+  line-height: 1;
 }
 
+.resume-footer-links span {
+  height: 12px;
+  position: relative;
+  bottom: 1px;
+}
+/* .resume-footer-links:last-child span {
+  bottom: 0px;
+} */
 .resume-footer-links li .fa-li {
   position: static;
   /* margin-right: 5px; */
@@ -182,6 +186,36 @@ li {
   font-family: "Roboto Bold";
   /* border-bottom: 2px solid #000; */
   font-size: 18px;
+  display: flex;
+  /* width: 100%; */
+  margin-bottom: 5px;
+  margin-left: 0px;
+  padding-right: 10px;
+}
+
+.resume-section-header-number {
+  /* display: flex; */
+  color: #ce2d2d;
+  position: relative;
+  margin-right: 5px;
+}
+
+.resume-section-header::after {
+  content: "";
+  display: flex;
+  height: 1px;
+  width: 100px;
+  background-color: #ce2d2d;
+  position: relative;
+  margin: auto 0px;
+  margin-left: 5px;
+  top: 2px;
+  /* padding-left: 20px; */
+}
+
+.resume-section {
+  margin: 0px 30px;
+  margin-bottom: 15px;
 }
 
 .experience-title {
@@ -192,4 +226,5 @@ li {
 .experience-details {
   font-family: "Roboto Light";
   font-size: 12px;
+  margin-bottom: 5px;
 }

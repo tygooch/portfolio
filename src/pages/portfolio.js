@@ -5,7 +5,6 @@ import Img from "gatsby-image"
 import SEO from "../components/seo"
 import ProjectCard from "../components/projectCard"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-// import Layout from "../components/layout"
 
 import "./portfolio.css"
 
@@ -58,10 +57,10 @@ const Portfolio = props => (
             multiple accounts. Bypasses client side validation to enter
             giveaways without fulfilling time intensive entry requirements.
           </div>
-          <div className="project-tags">
+          {/* <div className="project-tags">
             <span>JS</span>
             <span>Webpack</span>
-          </div>
+          </div> */}
           <div className="project-links">
             <a
               href="https://github.com/tygooch/amazon-giveaway-bot"
