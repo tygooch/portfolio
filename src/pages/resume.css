@@ -31,7 +31,7 @@
   src: url("../../static/NexaBold.otf");
 }
 
-@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap");
+/* @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"); */
 
 .resume-container {
   margin: 0px auto;
@@ -79,6 +79,17 @@
 .resume-download {
   justify-content: center;
   display: flex;
+  margin-bottom: 25px;
+}
+.resume-download-button {
+  display: flex;
+  position: relative;
+}
+.resume-download-button span {
+  margin: auto 0px;
+  margin-left: 5px;
+  position: relative;
+  bottom: 1px;
 }
 
 .resume-page ul {
@@ -88,13 +99,6 @@
 
 .skills {
   columns: 3;
-}
-
-.skills li {
-}
-
-.skills li:before {
-  /* font-weight: 600; */
 }
 
 .resume-header {
@@ -220,11 +224,29 @@
 
 .experience-title {
   font-family: "Roboto Medium";
-  font-size: 16px;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+}
+
+.experience-subtitle {
+  font-family: "Roboto Light";
+  font-size: 14px;
 }
 
 .experience-details {
   font-family: "Roboto Light";
   font-size: 12px;
   margin-bottom: 5px;
+  /* list-style: circle; */
+  margin-left: 15px;
+  /* padding-left: 15px; */
+}
+.experience-details li:before {
+  content: "-";
+  font-family: "Roboto Bold";
+  margin-left: -10px;
+  margin-right: 5px;
+  color: #ce2d2d;
 }

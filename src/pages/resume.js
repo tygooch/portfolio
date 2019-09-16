@@ -1,6 +1,6 @@
 import React from "react"
 import { withPrefix } from "gatsby"
-// import canvg from "canvg"
+import canvg from "canvg"
 import { PDFExport } from "@progress/kendo-react-pdf"
 
 import SEO from "../components/seo"
@@ -14,23 +14,23 @@ class Resume extends React.Component {
   constructor() {
     super()
     this.state = {}
-    // this.exportPDF = this.exportPDF.bind(this)
+    this.exportPDF = this.exportPDF.bind(this)
   }
 
-  // exportPDF() {
-  //   let canv = this.refs.canvas
-  //   canv.getContext("2d")
-  //   document.querySelectorAll(".resume-pdf svg").forEach(svg => {
-  //     canvg(canv, svg.outerHTML)
-  //     let domparser = new DOMParser()
-  //     let imgString = domparser.parseFromString(
-  //       `<img class="${svg.classList}" src="${canv.toDataURL("image/png")}" />`,
-  //       "text/html"
-  //     )
-  //     svg.replaceWith(imgString.querySelector("img"))
-  //   })
-  //   this.resume.save()
-  // }
+  exportPDF() {
+    let canv = this.refs.canvas
+    canv.getContext("2d")
+    document.querySelectorAll(".resume-pdf svg").forEach(svg => {
+      canvg(canv, svg.outerHTML)
+      let domparser = new DOMParser()
+      let imgString = domparser.parseFromString(
+        `<img class="${svg.classList}" src="${canv.toDataURL("image/png")}" />`,
+        "text/html"
+      )
+      svg.replaceWith(imgString.querySelector("img"))
+    })
+    this.resume.save()
+  }
 
   render() {
     const resumeContent = {
@@ -39,15 +39,21 @@ class Resume extends React.Component {
           title: "Software Engineer Intern",
           location: "UCSB Enterprise Technology Services",
           date: "May 2018 - Current",
-          details:
-            "Lead frontend developer on the Identity & Access Management team. Responsibilities include the design, implementation, and testing of new features for our web apps written in Aurelia JS alongside maintaining/updating legacy code to conform with latest standards. Accomplishments include releasing a major UI redesign, overhauling our dev environment to get HMR working between our Spring Boot templates and Webpack dev server, and rewriting legacy PHP services in Aurelia JS.",
+          details: [
+            "Responsible for leading frontend development on the Identity & Access Management team.",
+            "Designed, implemented, and tested new features for web apps built with Aurelia JS.",
+            "Oversaw release of major UI redesign, overhauled our dev environment to get HMR working between Spring Boot templates and Webpack dev server, and rewrote legacy PHP services in Aurelia JS.",
+          ],
         },
         {
-          title: "Software Engineer Contractor",
-          location: "Grassp",
-          date: "November 2018 - May 2019",
-          details:
-            "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem a dolorum repudiandae et eos aperiam aliquam incidunt! Odit dolores dolore quisquam. Amet eius voluptate porro accusamus atque rerum autem unde!",
+          title: "Frontend Software Engineer",
+          location: "Grassp Health",
+          date: "Sep 2018 - June 2019",
+          details: [
+            "Developed new features for web apps built with React.js and Redux",
+            "Updated legacy code to conform with latest standards in e-commerce and design",
+            "Successfully released a new progressive web app to support customers running iOS and android",
+          ],
         },
       ],
       projects: [
@@ -95,10 +101,11 @@ class Resume extends React.Component {
       ],
       education: [
         {
-          title:
-            "UC Santa Barbara - Computer Science Engineering (2014 - 2019)",
-          details:
+          title: "University of California, Santa Barbara",
+          subtitle: "Computer Science Engineering / 2014 - 2019",
+          details: [
             "Coursework focused on data structures and algorithms, software development, and discrete mathematics",
+          ],
         },
       ],
     }
@@ -107,6 +114,28 @@ class Resume extends React.Component {
       <>
         <SEO title="Resume" />
         <div className="resume-container">
+          <div className="resume-download">
+            {process.env.NODE_ENV === "development" && (
+              <button
+                onClick={this.exportPDF}
+                style={{
+                  width: 50,
+                }}
+              >
+                <FontAwesomeIcon icon="download" />
+                Save PDF
+              </button>
+            )}
+            <a
+              rel="noopener noreferrer"
+              href={withPrefix("/TyGoochResume.pdf")}
+              target="_blank"
+              class="resume-download-button"
+            >
+              <FontAwesomeIcon icon="file-download" />
+              <span>Download PDF</span>
+            </a>
+          </div>
           <div className="resume-page">
             <PDFExport
               paperSize={"Letter"}
@@ -141,9 +170,16 @@ class Resume extends React.Component {
                     {resumeContent.experience.map(el => (
                       <div>
                         <div className="experience-title">
-                          {el.title} - {el.location}
+                          <span>{el.title}</span>
+                          <span className="experience-subtitle">
+                            {el.location} / {el.date}
+                          </span>
                         </div>
-                        <div className="experience-details">{el.details}</div>
+                        <ul className="experience-details">
+                          {el.details.map(el => (
+                            <li>{el}</li>
+                          ))}
+                        </ul>
                       </div>
                     ))}
                   </div>
@@ -157,8 +193,11 @@ class Resume extends React.Component {
                       return (
                         <div>
                           <div className="experience-title">
-                            {/* {el.title} - {el.url} */}
                             {el.title} - {el.subtitle}
+                            {/* <span>{el.title}</span>
+                            <span className="experience-subtitle">
+                              {el.subtitle}
+                            </span> */}
                           </div>
                           <ul className="experience-details">
                             {el.details.map(el => (
@@ -189,8 +228,17 @@ class Resume extends React.Component {
                   <div className="resume-section">
                     {resumeContent.education.map(el => (
                       <div>
-                        <div className="experience-title">{el.title}</div>
-                        <div className="experience-details">{el.details}</div>
+                        <div className="experience-title">
+                          <span>{el.title}</span>
+                          <span className="experience-subtitle">
+                            {el.subtitle}
+                          </span>
+                        </div>
+                        {/* <ul className="experience-details">
+                          {el.details.map(el => (
+                            <li>{el}</li>
+                          ))}
+                        </ul> */}
                       </div>
                     ))}
                   </div>
@@ -222,27 +270,6 @@ class Resume extends React.Component {
                 </div>
               </div>
             </PDFExport>
-          </div>
-          <div className="resume-download">
-            {/* {process.env.NODE_ENV === "development" && (
-              <button
-                onClick={this.exportPDF}
-                style={{
-                  width: 50,
-                }}
-              >
-                <FontAwesomeIcon icon="download" />
-                Save PDF
-              </button>
-            )} */}
-            <a
-              rel="noopener noreferrer"
-              href={withPrefix("/TyGoochResume.pdf")}
-              target="_blank"
-            >
-              <FontAwesomeIcon icon="file-download" />
-              Download PDF
-            </a>
           </div>
         </div>
       </>
