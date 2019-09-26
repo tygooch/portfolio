@@ -30,7 +30,14 @@ const Layout = ({ children, location }) => (
         }
       }
     `}
-    render={data => <Transition location={location}>{children}</Transition>}
+    render={data => (
+        <Transition
+          shouldAnimate={location.state.shouldAnimate}
+          location={location}
+        >
+          {children}
+        </Transition>
+    )}
   />
 )
 

@@ -1,15 +1,22 @@
 import React from "react"
 import Header from "./src/components/header"
-// import Transition from "./src/components/transition"
 import Particles from "react-particles-js"
-import ReactCSSTransitionGroup from "react-addons-css-transition-group"
 import "pathseg"
 
+let startX = 50
+
 export const wrapPageElement = ({ element, props }) => {
+  // console.log(props.location.state)
+  if (!props.location.state) {
+    props.location.state = {}
+  }
+  props.location.state.shouldAnimate = !(
+    startX < 25 || startX > window.innerWidth - 25
+  )
   return (
     <>
       <main
-        className="main"
+        id="outer-container"
         style={{
           minHeight: `${window.innerHeight}px`,
         }}
@@ -54,18 +61,44 @@ export const wrapPageElement = ({ element, props }) => {
         />
         <Header />
         {element}
-        {/* <Transition location={}>{element}</Transition> */}
-        {/* <ReactCSSTransitionGroup
-          transitionName="fade"
-          transitionAppear={true}
-          transitionAppearTimeout={0}
-          transitionEnterTimeout={0}
-          transitionLeaveTimeout={0}
-        >
-          {element}
-        </ReactCSSTransitionGroup> */}
       </main>
-      {/* <Footer /> */}
     </>
   )
+}
+
+export const onPreRouteUpdate = ({ location, prevLocation }) => {
+  // if (prevLocation)
+  //   console.log(
+  //     "TCL: onPreRouteUpdate -> prevLocation.state.shouldAnimate",
+  //     prevLocation.state.shouldAnimate
+  //   )
+  // console.log(
+  //   "TCL: onPreRouteUpdate -> location.state.shouldAnimate",
+  //   location.state.shouldAnimate
+  // )
+  if (
+    prevLocation &&
+    !prevLocation.state.shouldAnimate &&
+    location.state.shouldAnimate
+  ) {
+    prevLocation.state.shouldAnimate = true
+    console.log("fix")
+  }
+  window.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape" }))
+  startX = 50
+}
+
+export const onInitialClientRender = () => {
+  var el = document.querySelector("body")
+  el.addEventListener(
+    "touchstart",
+    function(e) {
+      startX = e.changedTouches[0].pageX
+    },
+    false
+  )
+}
+
+export const shouldUpdateScroll = () => {
+  return false
 }

@@ -34,7 +34,7 @@ const ProjectCard = ({ github, url, title, description, tags }) => (
       </div>
       <span className="card-tags">
         {tags.map(tag => {
-          return <span>{tag}</span>
+          return <span key={tag + title}>{tag}</span>
         })}
       </span>
     </div>

@@ -5,6 +5,12 @@ module.exports = {
     author: `@tygooch`,
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-123999705-1",
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -31,14 +37,14 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/code-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/code-icon.png`,
       },
     },
     {
       resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
-          include: /assets/, // See below to configure properly
+          include: /assets/,
         },
       },
     },
@@ -56,11 +62,7 @@ module.exports = {
         component: require.resolve(`./src/layouts/index.js`),
       },
     },
-    `gatsby-plugin-offline`,
-
-    // { // `gatsby-plugin-transition-link`,
-    //   resolve: `gatsby-plugin-layout`,
-    // },
+    // `gatsby-plugin-offline`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
   ],

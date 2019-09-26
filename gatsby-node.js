@@ -5,10 +5,10 @@ const reactPdf = require("@progress/kendo-react-pdf")
 exports.onCreateDevServer = ({ app }) => {
   app.use(express.urlencoded())
 
-  app.post("/save", function(req, res) {
+  app.post("/save", function (req, res) {
     console.log(req.body)
     const pdfData = Buffer.from(req.body.base64.toString("utf-8"), "base64")
-    fs.writeFile(`${__dirname}/static/${req.body.fileName}`, pdfData, function(
+    fs.writeFile(`${__dirname}/static/${req.body.fileName}`, pdfData, function (
       err
     ) {
       if (err) {

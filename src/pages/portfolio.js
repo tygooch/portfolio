@@ -36,7 +36,7 @@ export const staticQuery = graphql`
 `
 
 const Portfolio = props => (
-  <div className="portfolio">
+  <div className="content">
     <SEO title="Portfolio" />
     {/* <h1>Featured Projects</h1> */}
     <h1 className="portfolio-header">Featured Projects</h1>

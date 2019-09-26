@@ -7,7 +7,7 @@ import "./index.css"
 const IndexPage = () => (
   <div className="home">
     <div className="home-container">
-      <SEO title="Home" />
+      <SEO title="Software Developer" />
       <div className="home-text-container">
         <span className="home-text-container-header">DEVELOPER</span>
         <span className="home-text-container-location">SANTA BARBARA, CA</span>

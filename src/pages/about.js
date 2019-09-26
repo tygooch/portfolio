@@ -6,24 +6,24 @@ import Layout from "../layouts"
 import "./about.css"
 
 const SecondPage = () => (
-  <div className="about">
+  <div className="content">
     <SEO title="About" />
     {/* <div className="about-header">HEY I'M TY</div> */}
 
     <h1 className="about-header">Background</h1>
     <div className="about-section">
-      As a frontend developer, I straddle the border between engineering and
-      design, combining the latest technologies with modern design standards to
-      build sleek web apps. To ensure my work delivers a solid user experience,
-      I focus on developing engaging, responsive interfaces with an emphasis on
-      simplicity.
-      <br />
-      <br />
+      I'm a software developer with a passion for UI/UX. My skillset includes
+      React, Node.js, Express.js, Webpack, HTML, CSS, and multiple UI libraries
+      such as Bootstrap and Material Design. I have 3 years of experience
+      building full-stack web applications and am always experimenting with the
+      latest technology.
+    </div>
+    {/* <div className="about-section">
       I'm currently available for work and am actively seeking a software
       development role that will put my coding abilities to the test. If your
       team needs an open-minded problem solver with a strong background in
       JavaScript, I'm your guy.
-    </div>
+    </div> */}
 
     <h1 className="about-header">Skills</h1>
     {/* <div className="about-section-text"> */}

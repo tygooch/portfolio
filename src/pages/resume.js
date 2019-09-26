@@ -132,9 +132,9 @@ class Resume extends React.Component {
                 <div className="resume-header">
                   <div className="resume-header-name">Ty Gooch</div>
                   <ul className="resume-contact-info">
-                    <li>805-705-6502</li>
-                    <li>gooch.ty@gmail.com</li>
-                    <li>Santa Barbara, CA</li>
+                    <li key="phoneNumber">805-705-6502</li>
+                    <li key="email">gooch.ty@gmail.com</li>
+                    <li key="location">Santa Barbara, CA</li>
                   </ul>
                 </div>
 
@@ -145,7 +145,7 @@ class Resume extends React.Component {
                   </div>
                   <div className="resume-section">
                     {resumeContent.experience.map(el => (
-                      <div>
+                      <div key={el.title}>
                         <div className="experience-title">
                           <span>{el.title}</span>
                           <span className="experience-subtitle">
@@ -154,7 +154,7 @@ class Resume extends React.Component {
                         </div>
                         <ul className="experience-details">
                           {el.details.map(el => (
-                            <li>{el}</li>
+                            <li key={el}>{el}</li>
                           ))}
                         </ul>
                       </div>
@@ -168,7 +168,7 @@ class Resume extends React.Component {
                   <div className="resume-section">
                     {resumeContent.projects.map(el => {
                       return (
-                        <div>
+                        <div key={el.title}>
                           <div className="experience-title">
                             <a href={el.url} target="_blank">
                               {el.title} - {el.subtitle}
@@ -180,7 +180,7 @@ class Resume extends React.Component {
                           </div>
                           <ul className="experience-details">
                             {el.details.map(el => (
-                              <li>{el}</li>
+                              <li key={el}>{el}</li>
                             ))}
                           </ul>
                         </div>
@@ -195,7 +195,7 @@ class Resume extends React.Component {
                   <div className="resume-section">
                     <ul className="skills">
                       {resumeContent.skills.map(el => (
-                        <li>{el}</li>
+                        <li key={el}>{el}</li>
                       ))}
                     </ul>
                   </div>
@@ -206,7 +206,7 @@ class Resume extends React.Component {
                   </div>
                   <div className="resume-section">
                     {resumeContent.education.map(el => (
-                      <div>
+                      <div key={el.title}>
                         <div className="experience-title">
                           <span>{el.title}</span>
                           <span className="experience-subtitle">
@@ -215,7 +215,7 @@ class Resume extends React.Component {
                         </div>
                         <ul className="experience-details">
                           {el.details.map(el => (
-                            <li>{el}</li>
+                            <li key={el}>{el}</li>
                           ))}
                         </ul>
                       </div>
@@ -226,21 +226,21 @@ class Resume extends React.Component {
                 <div className="resume-footer">
                   <ul className="resume-footer-links">
                     <a href="https://github.com/tygooch">
-                      <li>
+                      <li key="githubLink">
                         <FontAwesomeIcon icon={["fab", "github"]} listItem />
                         <span>github.com/tygooch</span>
                       </li>
                     </a>
 
                     <a href="https://tygooch.com">
-                      <li>
+                      <li key="websiteLink">
                         <FontAwesomeIcon icon="globe" listItem />
                         <span>tygooch.com</span>
                       </li>
                     </a>
 
                     <a href="https://linkedin.com/in/tygooch">
-                      <li>
+                      <li key="linkedInLink">
                         <FontAwesomeIcon icon={["fab", "linkedin"]} listItem />
                         <span>linkedin.com/in/tygooch</span>
                       </li>
@@ -267,7 +267,7 @@ class Resume extends React.Component {
             rel="noopener noreferrer"
             href={withPrefix("/TyGoochResume.pdf")}
             target="_blank"
-            class="resume-download-button"
+            className="resume-download-button"
           >
             <FontAwesomeIcon icon="file-download" />
             <span>Download PDF</span>
