@@ -77,8 +77,7 @@ class Transition extends React.Component {
             <div
               id='page-wrap'
               style={{
-                ...this.getTransitionStyles(status),
-                padding: '0px 30px'
+                ...this.getTransitionStyles(status)
               }}
             >
               {children}

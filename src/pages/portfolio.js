@@ -40,7 +40,7 @@ const Portfolio = props => (
   <div className='content'>
     <SEO title='Portfolio' />
     {/* <h1>Featured Projects</h1> */}
-    <h1 className='portfolio-header'>Featured</h1>
+    <h1 className='portfolio-header'>Featured Work</h1>
     <div className='featured-projects'>
       <div className='project'>
         <div className='project-image'>

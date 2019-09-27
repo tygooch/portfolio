@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap");
+/* @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap"); */
 @import url("https://pro.fontawesome.com/releases/v5.8.2/css/all.css");
 
 body {
@@ -54,7 +54,14 @@ main {
   flex-direction: column;
 }
 
-@media screen and (min-width: 701px) {
+#page-wrap {
+  padding: 0px 30px;
+}
+
+@media screen and (max-width: 700px) {
+  #page-wrap {
+    padding: 0px 15px;
+  }
 }
 
 .particles-background {

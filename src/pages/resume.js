@@ -39,9 +39,9 @@ class Resume extends React.Component {
           location: 'UCSB Enterprise Technology Services',
           date: 'May 2018 - Current',
           details: [
-            'Responsible for leading frontend development on the Identity & Access Management team',
-            'Designed, implemented, and tested new features for web apps built with Aurelia JS',
-            'Oversaw release of major UI redesign, overhauled our dev environment to get HMR working between Spring Boot templates and Webpack dev server, and rewrote legacy PHP services in JavaScript'
+            'Responsible for leading frontend development on the Identity & Access Management team.',
+            'Designed, implemented, & tested new features for web apps built with Aurelia.js & Spring MVC.',
+            'Accomplishments include designing & deploying a brand new UI for UCSB\'s account management website, automating the build process between our back & frontend services, and designing a reusable component library to achieve consistency throughout our apps.'
           ]
         },
         {
@@ -49,9 +49,9 @@ class Resume extends React.Component {
           location: 'Grassp Health',
           date: 'Sep 2018 - June 2019',
           details: [
-            'Developed new features for web apps built with React.js and Redux',
-            'Updated legacy code to conform with latest standards in e-commerce and design',
-            'Successfully released a new progressive web app to add support for mobile devices'
+            'Designed & developed new features for a web app built with React/Redux and Spring MVC.',
+            'Worked closely with CEO & CFO to design a new user interface using Material-UI.',
+            'Successfully released updated application as a Progressive Web App with support for service workers, push notifications, and offline support.'
           ]
         }
       ],
@@ -61,9 +61,9 @@ class Resume extends React.Component {
           subtitle: 'Chrome extension to win Amazon Giveaways',
           url: 'https://github.com/TyGooch/amazon-giveaway-bot',
           details: [
-            'Built with vanilla JS and Webpack',
-            'Features include CAPTCHA solving, customizable filters, and support for multiple accounts',
-            'Bypasses client side validation to enter giveaways without fulfilling time intensive entry requirements'
+            'Built with vanilla JS and Webpack.',
+            'Features include CAPTCHA solving, customizable filters, and support for multiple accounts.',
+            'Bypasses client side validation to enter giveaways without fulfilling time intensive entry requirements.'
           ]
         },
         {
@@ -71,26 +71,26 @@ class Resume extends React.Component {
           subtitle: 'Interactive map of the UCSB campus',
           url: 'https://github.com/TyGooch/ucsb-map',
           details: [
-            'Built with React/Redux, Leaflet.js, Spring Boot, and MongoDB',
-            'Features a fully responsive UI, custom styled map tiles, an easy to use search tool, and interior floorplans to make finding rooms easier than ever',
-            'Integrates easily with UCSB online schedules via a chrome extension, allowing students to view classroom locations with one click'
+            'Built with React/Redux, Leaflet.js, Java Spring MVC, and MongoDB.',
+            'Features a fully responsive UI, custom styled map tiles, an easy to use search tool, and interior floor plans to make finding rooms easier than ever.',
+            'Integrates easily with UCSB online schedules via a chrome extension, allowing students to view classroom locations with one click.'
           ]
         },
         {
           title: 'Isla Vista Emergency Map',
-          subtitle: 'Interactive map of IV emergencies',
+          subtitle: 'Interactive map of real time emergencies',
           url: 'https://github.com/TyGooch/iv-emergency-map',
           details: [
-            'Built with React/Redux, Express.js, Google Maps, and MongoDB',
-            'Streams live tweets from SB County Fire using the Twitter API',
-            'Converts addresses from tweet content into map markers using Google Maps API'
+            'Built with React/Redux, Express.js, Google Maps, and MongoDB.',
+            'Streams live tweets from SB County Fire using the Twitter API.',
+            'Converts addresses from tweet content into map markers using Google Maps API.'
           ]
         }
       ],
       skills: {
         LANGUAGES:
         [
-          'JavaScript (ESNext)',
+          'JavaScript (ES6+)',
           'HTML, CSS',
           'Bash',
           'Java'
@@ -113,7 +113,7 @@ class Resume extends React.Component {
         [
           'Adobe Illustrator',
           'Sketch App',
-          'MaterialUI',
+          'Material-UI',
           'Bootstrap'
         ]
       },
@@ -122,7 +122,7 @@ class Resume extends React.Component {
           title: 'UC Santa Barbara',
           subtitle: 'Computer Science Engineering / 2014 - 2019',
           details: [
-            'Coursework focused on software development and data structures and algorithms'
+            'Coursework focused on software development and data structures and algorithms.'
           ]
         }
       ]
