@@ -1,7 +1,7 @@
 import React from 'react'
 import { withPrefix } from 'gatsby'
 import { PDFExport } from '@progress/kendo-react-pdf'
-// import canvg from "canvg"
+import canvg from 'canvg'
 
 /* eslint-disable react/jsx-pascal-case */
 import SEO from '../components/seo'
@@ -13,23 +13,23 @@ class Resume extends React.Component {
   constructor () {
     super()
     this.state = {}
-    // this.exportPDF = this.exportPDF.bind(this)
+    this.exportPDF = this.exportPDF.bind(this)
   }
 
-  // exportPDF() {
-  //   let canv = this.refs.canvas
-  //   canv.getContext("2d")
-  //   document.querySelectorAll(".resume-pdf svg").forEach(svg => {
-  //     canvg(canv, svg.outerHTML)
-  //     let domparser = new DOMParser()
-  //     let imgString = domparser.parseFromString(
-  //       `<img class="${svg.classList}" src="${canv.toDataURL("image/png")}" />`,
-  //       "text/html"
-  //     )
-  //     svg.replaceWith(imgString.querySelector("img"))
-  //   })
-  //   this.resume.save()
-  // }
+  exportPDF () {
+    const canv = this.refs.canvas
+    canv.getContext('2d')
+    document.querySelectorAll('.resume-pdf svg').forEach(svg => {
+      canvg(canv, svg.outerHTML)
+      const domparser = new DOMParser()
+      const imgString = domparser.parseFromString(
+        `<img class="${svg.classList}" src="${canv.toDataURL('image/png')}" />`,
+        'text/html'
+      )
+      svg.replaceWith(imgString.querySelector('img'))
+    })
+    this.resume.save()
+  }
 
   render () {
     const resumeContent = {
@@ -87,17 +87,36 @@ class Resume extends React.Component {
           ]
         }
       ],
-      skills: [
-        'JavaScript, jQuery',
-        'React.js, Redux',
+      skills: {
+        LANGUAGES:
+        [
+          'JavaScript (ESNext)',
+          'HTML, CSS',
+          'Bash',
+          'Java'
+        ],
+        FRAMEWORKS:
+        [
+          'React.js, Redux',
+          'Express.js',
+          'Aurelia.js',
+          'Gatsby.js'
+        ],
+        'TOOLS & TECH':
+      [
         'Node.js',
         'Webpack',
-        'Aurelia.js',
-        'Express.js',
-        'MongoDB, PostgreSQL',
-        'HTML, CSS, Sass',
-        'Google Maps, Leaflet.js'
+        'Leaflet.js',
+        'Linux'
       ],
+        'UI/UX':
+        [
+          'Adobe Illustrator',
+          'Sketch App',
+          'MaterialUI',
+          'Bootstrap'
+        ]
+      },
       education: [
         {
           title: 'UC Santa Barbara',
@@ -133,7 +152,7 @@ class Resume extends React.Component {
                 <div className='resume-header'>
                   <div className='resume-header-name'>Ty Gooch</div>
                   <ul className='resume-footer-links'>
-                    <a href='tel:+18057056502'>
+                    <a href='tel:+18057056502' target='_blank' rel='noopener noreferrer'>
                       <li key='websiteLink'>
                         <FontAwesomeIcon icon={['fas', 'mobile-android-alt']} listItem />
                         <span>805-705-6502</span>
@@ -147,7 +166,7 @@ class Resume extends React.Component {
                       </li>
                     </a>
 
-                    <a href='mailto:gooch.ty@gmail.com'>
+                    <a href='mailto:gooch.ty@gmail.com' target='_blank' rel='noopener noreferrer'>
                       <li key='emailLink'>
                         <FontAwesomeIcon icon={['fas', 'paper-plane']} listItem />
                         <span>gooch.ty@gmail.com</span>
@@ -235,9 +254,16 @@ class Resume extends React.Component {
                   </div>
                   <div className='resume-section'>
                     <ul className='skills'>
-                      {resumeContent.skills.map(el => (
-                        <li key={el}>{el}</li>
-                      ))}
+                      {Object.keys(resumeContent.skills).map(el => {
+                        return (
+                          <ul key={el}>
+                            <li className='experience-title'>{el}</li>
+                            {resumeContent.skills[el].map(skill => (
+                              <li key={skill}>{skill}</li>
+                            ))}
+                          </ul>
+                        )
+                      })}
                     </ul>
                   </div>
 
@@ -270,17 +296,17 @@ class Resume extends React.Component {
           </div>
         </div>
         <div className='resume-download'>
-          {/* {process.env.NODE_ENV === "development" && (
+          {process.env.NODE_ENV === 'development' && (
             <button
               onClick={this.exportPDF}
               style={{
-                width: 50,
+                width: 50
               }}
             >
-              <FontAwesomeIcon icon="download" />
+              <FontAwesomeIcon icon='download' />
               Save PDF
             </button>
-          )} */}
+          )}
           <a
             rel='noopener noreferrer'
             href={withPrefix('/TyGoochResume.pdf')}

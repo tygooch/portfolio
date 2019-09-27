@@ -108,7 +108,11 @@
 }
 
 .skills {
-  columns: 3;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-right: 25px;
+  /* columns: 4; */
 }
 
 .resume-header {
@@ -188,6 +192,7 @@
 .resume-section {
   margin: 0px 30px;
   margin-bottom: 1em;
+  margin-right: 0px;
 }
 
 .experience-title {
