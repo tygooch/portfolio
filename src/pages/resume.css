@@ -62,18 +62,6 @@
   vertical-align: 0;
 }
 
-@media screen and (max-width: 700px) {
-  .resume-container {
-    transform: scale(0.5);
-    transform-origin: top center;
-    max-width: 306px;
-    max-height: 396px;
-    /* height: 100%; */
-  }
-  .resume-container {
-    /* height: 100px;  */
-  }
-}
 
 .resume-pdf {
   display: flex;
@@ -94,10 +82,15 @@
 .resume-download-button {
   display: flex;
   position: relative;
+  justify-content: center;
+  padding: 10px;
+  text-align: center;
+  margin: 0px auto;
+  font-size: 2em;
 }
 .resume-download-button span {
   margin: auto 0px;
-  margin-left: 5px;
+  margin-left: 15px;
   position: relative;
   bottom: 1px;
 }
@@ -282,4 +275,22 @@
 
 .fa-ul {
   margin-left: 0px;
+}
+
+@media screen and (max-width: 700px) {
+  .resume-container {
+    transform: scale(0.5);
+    transform-origin: top center;
+    max-width: 306px;
+    max-height: 396px;
+    /* height: 100%; */
+  }
+  .resume-pdf {
+    height: 800px;
+    width: 618px;
+  }
+  .resume-download-button {
+    top: 890px;
+    transform: scale(2);
+  }
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import { withPrefix } from 'gatsby'
 import { PDFExport } from '@progress/kendo-react-pdf'
-import canvg from 'canvg'
+// import canvg from 'canvg'
 
 /* eslint-disable react/jsx-pascal-case */
 import SEO from '../components/seo'
@@ -13,23 +13,23 @@ class Resume extends React.Component {
   constructor () {
     super()
     this.state = {}
-    this.exportPDF = this.exportPDF.bind(this)
+    // this.exportPDF = this.exportPDF.bind(this)
   }
 
-  exportPDF () {
-    const canv = this.refs.canvas
-    canv.getContext('2d')
-    document.querySelectorAll('.resume-pdf svg').forEach(svg => {
-      canvg(canv, svg.outerHTML)
-      const domparser = new DOMParser()
-      const imgString = domparser.parseFromString(
-        `<img class="${svg.classList}" src="${canv.toDataURL('image/png')}" />`,
-        'text/html'
-      )
-      svg.replaceWith(imgString.querySelector('img'))
-    })
-    this.resume.save()
-  }
+  // exportPDF () {
+  //   const canv = this.refs.canvas
+  //   canv.getContext('2d')
+  //   document.querySelectorAll('.resume-pdf svg').forEach(svg => {
+  //     canvg(canv, svg.outerHTML)
+  //     const domparser = new DOMParser()
+  //     const imgString = domparser.parseFromString(
+  //       `<img class="${svg.classList}" src="${canv.toDataURL('image/png')}" />`,
+  //       'text/html'
+  //     )
+  //     svg.replaceWith(imgString.querySelector('img'))
+  //   })
+  //   this.resume.save()
+  // }
 
   render () {
     const resumeContent = {
@@ -133,6 +133,15 @@ class Resume extends React.Component {
         <SEO title='Resume' />
 
         <div className='resume-container'>
+          <a
+            rel='noopener noreferrer'
+            href={withPrefix('/TyGoochResume.pdf')}
+            target='_blank'
+            className='resume-download-button'
+          >
+            <FontAwesomeIcon icon='file-download' />
+            <span>Download PDF</span>
+          </a>
           <div className='resume-page'>
             <PDFExport
               paperSize='Letter'
@@ -147,7 +156,8 @@ class Resume extends React.Component {
                 this.resume = pdf
               }}
             >
-              <canvas ref='canvas' style={{ display: 'none' }} />
+              {/* <canvas ref='canvas' style={{ display: 'none' }} /> */}
+
               <div className='resume-pdf'>
                 <div className='resume-header'>
                   <div className='resume-header-name'>Ty Gooch</div>
@@ -172,6 +182,7 @@ class Resume extends React.Component {
                         <span>gooch.ty@gmail.com</span>
                       </li>
                     </a>
+
                     <a href='https://tygoo.ch/linkedin' target='_blank' rel='noopener noreferrer'>
                       <li key='linkedInLink'>
                         <FontAwesomeIcon icon={['fab', 'linkedin']} listItem />
@@ -179,12 +190,11 @@ class Resume extends React.Component {
                       </li>
                     </a>
 
-                    {/* <a href='https://tygooch.com'> */}
                     <li className='a' key='home' style={{ margin: 0 }}>
                       <FontAwesomeIcon icon={['fas', 'map-marker-alt']} listItem />
                       <span>Santa Barbara, CA</span>
                     </li>
-                    {/* </a> */}
+
                     <a href='https://tygooch.com' target='_blank' rel='noopener noreferrer'>
                       <li key='websiteLink'>
                         <FontAwesomeIcon icon={['far', 'window-alt']} listItem />
@@ -192,11 +202,6 @@ class Resume extends React.Component {
                       </li>
                     </a>
                   </ul>
-                  {/* <ul className='resume-contact-info'>
-                    <li key='phoneNumber'>805-705-6502</li>
-                    <li key='email'>gooch.ty@gmail.com</li>
-                    <li key='location'>Santa Barbara, CA</li>
-                  </ul> */}
                 </div>
                 <div className='resume-body'>
                   <div className='resume-section-header'>
@@ -233,10 +238,6 @@ class Resume extends React.Component {
                             <a href={el.url} target='_blank' rel='noopener noreferrer'>
                               {el.title} - {el.subtitle}
                             </a>
-                            {/* <span>{el.title}</span>
-                            <span className="experience-subtitle">
-                              {el.subtitle}
-                            </span> */}
                           </div>
                           <ul className='experience-details'>
                             {el.details.map(el => (
@@ -289,14 +290,12 @@ class Resume extends React.Component {
                     ))}
                   </div>
                 </div>
-
-                {/* <div className='resume-footer' /> */}
               </div>
             </PDFExport>
           </div>
         </div>
         <div className='resume-download'>
-          {process.env.NODE_ENV === 'development' && (
+          {/* {process.env.NODE_ENV === 'development' && (
             <button
               onClick={this.exportPDF}
               style={{
@@ -306,16 +305,8 @@ class Resume extends React.Component {
               <FontAwesomeIcon icon='download' />
               Save PDF
             </button>
-          )}
-          <a
-            rel='noopener noreferrer'
-            href={withPrefix('/TyGoochResume.pdf')}
-            target='_blank'
-            className='resume-download-button'
-          >
-            <FontAwesomeIcon icon='file-download' />
-            <span>Download PDF</span>
-          </a>
+          )} */}
+
         </div>
       </div>
     )
