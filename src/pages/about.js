@@ -1,17 +1,17 @@
-import React from "react"
+import React from 'react'
 
-import SEO from "../components/seo"
-import Layout from "../layouts"
+/* eslint-disable react/jsx-pascal-case */
+import SEO from '../components/seo'
 
-import "./about.css"
+import './about.css'
 
 const SecondPage = () => (
-  <div className="content">
-    <SEO title="About" />
+  <div className='content'>
+    <SEO title='About' />
     {/* <div className="about-header">HEY I'M TY</div> */}
 
-    <h1 className="about-header">Background</h1>
-    <div className="about-section">
+    <h1 className='about-header'>Background</h1>
+    <div className='about-section'>
       I'm a software developer with a passion for UI/UX. My skillset includes
       React, Node.js, Express.js, Webpack, HTML, CSS, and multiple UI libraries
       such as Bootstrap and Material Design. I have 3 years of experience
@@ -25,13 +25,13 @@ const SecondPage = () => (
       JavaScript, I'm your guy.
     </div> */}
 
-    <h1 className="about-header">Skills</h1>
+    <h1 className='about-header'>Skills</h1>
     {/* <div className="about-section-text"> */}
-    <div className="about-section">
-      <ul className="skills-content">
-        <li className="skills-column">
-          <div className="skills-header">LANGUAGES</div>
-          <div className="skills-list">
+    <div className='about-section'>
+      <ul className='skills-content'>
+        <li className='skills-column'>
+          <div className='skills-header'>LANGUAGES</div>
+          <div className='skills-list'>
             <span>
               JavaScript (ES6)
               <br />
@@ -46,9 +46,9 @@ const SecondPage = () => (
           </div>
         </li>
 
-        <li className="skills-column">
-          <div className="skills-header">TECHNOLOGIES</div>
-          <div className="skills-list">
+        <li className='skills-column'>
+          <div className='skills-header'>TECHNOLOGIES</div>
+          <div className='skills-list'>
             <span>
               Node.js
               <br />
@@ -63,9 +63,9 @@ const SecondPage = () => (
           </div>
         </li>
 
-        <li className="skills-column">
-          <div className="skills-header">TOOLS</div>
-          <div className="skills-list">
+        <li className='skills-column'>
+          <div className='skills-header'>TOOLS</div>
+          <div className='skills-list'>
             <span>
               Git & GitHub
               <br />
@@ -79,9 +79,9 @@ const SecondPage = () => (
           </div>
         </li>
 
-        <li className="skills-column">
-          <div className="skills-header">MISCELLANEOUS</div>
-          <div className="skills-list">
+        <li className='skills-column'>
+          <div className='skills-header'>MISCELLANEOUS</div>
+          <div className='skills-list'>
             <span>
               Adobe Illustrator
               <br />
@@ -101,5 +101,5 @@ const SecondPage = () => (
     </div> */}
   </div>
 )
-
+/* eslint-enable react/jsx-pascal-case */
 export default SecondPage

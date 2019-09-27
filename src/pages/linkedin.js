@@ -1,9 +1,8 @@
 import { useEffect } from 'react'
-import { navigate } from 'gatsby'
 
 export default () => {
   useEffect(() => {
-    navigate('/')
+    window.location.replace('https://www.linkedin.com/in/tygooch')
   }, [])
   return null
 }

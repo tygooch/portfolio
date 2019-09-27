@@ -122,18 +122,20 @@
 
 .resume-header-name {
   text-align: left;
-  font-size: 2em;
+  font-size: 3.5em;
   padding: 0px;
   font-family: "Roboto Medium";
   /* font-weight: 700; */
 }
 
 .resume-contact-info {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   justify-content: space-around;
-  box-sizing: border-box;
-  width: 50%;
+  box-sizing: border-box; */
+  display: grid;
+  grid-template-columns: 150px;
+  /* width: 50%; */
   text-align: right;
 }
 
@@ -149,53 +151,6 @@
   flex: 1;
   padding: 0px 0.25in;
   font-size: 1em;
-}
-
-.resume-footer {
-  /* margin-top: 25px; */
-  /* position: absolute; */
-  bottom: 0px;
-  left: 0px;
-  width: 100%;
-  /* padding: 10px 0px; */
-  /* padding-top: 1em; */
-  margin-bottom: 10px;
-}
-
-.resume-footer-links {
-  margin: 0px 24px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  box-sizing: border-box;
-}
-
-.resume-footer-links li {
-  cursor: pointer;
-  display: inline-block;
-  font-family: "Roboto Light";
-  font-size: 12px;
-  display: flex;
-  /* height: 25px; */
-  margin: 0px auto;
-  line-height: 1;
-}
-
-.resume-footer-links span {
-  height: 12px;
-  position: relative;
-  bottom: 1px;
-}
-/* .resume-footer-links:last-child span {
-  bottom: 0px;
-} */
-.resume-footer-links li .fa-li {
-  position: static;
-  /* margin-right: 5px; */
-}
-
-.fa-ul {
-  margin-left: 0px;
 }
 
 .resume-section-header {
@@ -262,4 +217,64 @@
   margin-left: -10px;
   margin-right: 5px;
   color: #ce2d2d;
+}
+
+.resume-footer {
+  /* margin-top: 25px; */
+  /* position: absolute; */
+  bottom: 0px;
+  left: 0px;
+  /* padding: 10px 0px; */
+  /* padding-top: 1em; */
+  /* margin-bottom: 10px; */
+  padding: 0.25in;
+  padding-bottom: 16px;
+}
+
+.resume-footer-links {
+  /* margin: 0px 24px; */
+  /* display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  box-sizing: border-box; */
+  /* padding: 0px 0.25in; */
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: 12px 12px 12px;
+  column-gap: 15px;
+  row-gap: 5px;
+  text-align: left;
+  margin: auto 0px;
+}
+
+.resume-footer-links li {
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Roboto Light";
+  font-size: 12px;
+  display: flex;
+  /* height: 25px; */
+  margin: 0px auto;
+  line-height: 1;
+  /* padding: 5px 0px; */
+
+}
+
+.resume-footer-links span {
+  height: 12px;
+  position: relative;
+  /* bottom: 1px; */
+  flex-grow: 1;
+  /* text-align: right; */
+}
+/* .resume-footer-links:last-child span {
+  bottom: 0px;
+} */
+.resume-footer-links li .fa-li {
+  position: static;
+  /* margin-right: 5px; */
+}
+
+.fa-ul {
+  margin-left: 0px;
 }

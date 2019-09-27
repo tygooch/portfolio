@@ -1,38 +1,40 @@
-import React from "react"
-import PropTypes from "prop-types"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import React from 'react'
+import PropTypes from 'prop-types'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import "./projectCard.css"
+import './projectCard.css'
 
 const ProjectCard = ({ github, url, title, description, tags }) => (
-  <div className="project-card">
-    <div className="card-content">
+  <div className='project-card'>
+    <div className='card-content'>
       <div>
-        <div className="card-header">
-          <div className="project-icon">
-            <FontAwesomeIcon icon={["fal", "folder-open"]} />
+        <div className='card-header'>
+          <div className='project-icon'>
+            <FontAwesomeIcon icon={['fal', 'folder-open']} />
           </div>
-          <div className="project-links">
+          <div className='project-links'>
             <a
-              style={{ display: github ? "block" : "none" }}
+              style={{ display: github ? 'block' : 'none' }}
               href={github}
-              target="_blank"
+              target='_blank'
+              rel='noopener noreferrer'
             >
-              <FontAwesomeIcon icon={["fab", "github"]} />
+              <FontAwesomeIcon icon={['fab', 'github']} />
             </a>
             <a
-              style={{ display: url ? "block" : "none" }}
+              style={{ display: url ? 'block' : 'none' }}
               href={url}
-              target="_blank"
+              target='_blank'
+              rel='noopener noreferrer'
             >
-              <FontAwesomeIcon icon={["far", "external-link"]} />
+              <FontAwesomeIcon icon={['far', 'external-link']} />
             </a>
           </div>
         </div>
-        <h3 className="card-title">{title}</h3>
-        <span className="card-description">{description}</span>
+        <h3 className='card-title'>{title}</h3>
+        <span className='card-description'>{description}</span>
       </div>
-      <span className="card-tags">
+      <span className='card-tags'>
         {tags.map(tag => {
           return <span key={tag + title}>{tag}</span>
         })}
@@ -46,7 +48,7 @@ ProjectCard.propTypes = {
   url: PropTypes.string,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  tags: PropTypes.array.isRequired,
+  tags: PropTypes.array.isRequired
 }
 
 export default ProjectCard

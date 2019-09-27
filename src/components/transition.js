@@ -1,73 +1,72 @@
-import React from "react"
+import React from 'react'
 import {
   TransitionGroup,
-  Transition as ReactTransition,
-} from "react-transition-group"
+  Transition as ReactTransition
+} from 'react-transition-group'
 
 class Transition extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
-    const { children, location, shouldAnimate } = this.props
     this.state = {
-      shouldAnimate: shouldAnimate,
-      timeout: shouldAnimate ? 500 : 0,
+      shouldAnimate: this.props.shouldAnimate,
+      timeout: this.props.shouldAnimate ? 500 : 0
     }
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps (nextProps) {
     console.log(nextProps)
     if (this.props.shouldAnimate !== nextProps.shouldAnimate) {
-      console.log("animate")
+      console.log('animate')
       this.setShouldAnimate(nextProps.shouldAnimate)
     }
   }
 
-  setShouldAnimate(shouldAnimate) {
-    console.log("set")
+  setShouldAnimate (shouldAnimate) {
+    console.log('set')
     this.setState({
       shouldAnimate: shouldAnimate,
-      timeout: shouldAnimate ? 500 : 0,
+      timeout: shouldAnimate ? 500 : 0
     })
   }
 
-  getTransitionStyles(state) {
+  getTransitionStyles (state) {
     console.log(state)
-    let timeout = this.state.timeout
-    if (state === "entering") {
+    const timeout = this.state.timeout
+    if (state === 'entering') {
       return {
-        position: `absolute`,
-        opacity: 0,
+        position: 'absolute',
+        opacity: 0
       }
-    } else if (state === "entered") {
+    } else if (state === 'entered') {
       return {
         transition: `opacity ${timeout}ms ease-in-out`,
-        opacity: 1,
+        opacity: 1
       }
-    } else if (state === "exiting") {
+    } else if (state === 'exiting') {
       return {
         transition: `opacity ${timeout}ms ease-in-out`,
-        opacity: 0,
+        opacity: 0
       }
-    } else if (state === "exited") {
+    } else if (state === 'exited') {
       return {
         transition: `opacity ${timeout}ms ease-in-out`,
-        opacity: 0,
+        opacity: 0
       }
     }
   }
 
-  render() {
+  render () {
     const { children, location } = this.props
     // const timeout = shouldAnimate ? 500 : 0
 
     return (
       <TransitionGroup>
-      
+
         <ReactTransition
           key={location.pathname}
           timeout={{
             enter: this.state.timeout,
-            exit: this.state.timeout,
+            exit: this.state.timeout
           }}
           // mountOnEnter={true}
           // unmountOnExit={true}
@@ -76,17 +75,17 @@ class Transition extends React.Component {
         >
           {status => (
             <div
-              id="page-wrap"
+              id='page-wrap'
               style={{
                 ...this.getTransitionStyles(status),
-                padding: "0px 15px",
+                padding: '0px 30px'
               }}
             >
               {children}
             </div>
           )}
         </ReactTransition>
-        </TransitionGroup>
+      </TransitionGroup>
     )
   }
 }
