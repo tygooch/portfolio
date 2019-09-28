@@ -1,8 +1,9 @@
 module.exports = {
   siteMetadata: {
     title: 'Ty Gooch',
-    description: 'Ty Gooch\'s personal website and portfolio.',
-    author: '@tygooch'
+    description: 'Ty Gooch is a software developer based in Santa Barbara, CA who specializes in creating high quality websites with an emphasis on simplicity.',
+    author: '@tygooch',
+    siteUrl: 'https://tygooch.com'
   },
   plugins: [
     {
@@ -61,9 +62,40 @@ module.exports = {
       options: {
         component: require.resolve('./src/layouts/index.js')
       }
-    }
-    // `gatsby-plugin-offline`,
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
+    },
+    {
+      resolve: 'gatsby-plugin-sitemap',
+      options: {
+        // Exclude specific pages or groups of pages using glob parameters
+        // See: https://github.com/isaacs/minimatch
+        // The example below will exclude the single `path/to/page` and all routes beginning with `category`
+        exclude: ['/linkedin'],
+        query: `
+        {
+          site {
+            siteMetadata {
+              siteUrl
+            }
+          }
+
+          allSitePage {
+            edges {
+              node {
+                path
+              }
+            }
+          }
+      }`,
+        serialize: ({ site, allSitePage }) =>
+          allSitePage.edges.map(edge => {
+            return {
+              url: site.siteMetadata.siteUrl + edge.node.path,
+              changefreq: 'daily',
+              priority: 0.7
+            }
+          })
+      }
+    },
+    'gatsby-plugin-remove-serviceworker'
   ]
 }

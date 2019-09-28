@@ -122,7 +122,7 @@ class Resume extends React.Component {
           title: 'UC Santa Barbara',
           subtitle: 'Computer Science Engineering / 2014 - 2019',
           details: [
-            'Coursework focused on software development and data structures and algorithms.'
+            'Coursework focused on software development alongside data structures & algorithms.'
           ]
         }
       ]
