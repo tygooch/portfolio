@@ -1,13 +1,13 @@
-import React from 'react'
-import { withPrefix } from 'gatsby'
-import { PDFExport } from '@progress/kendo-react-pdf'
+import React from "react"
+import { withPrefix } from "gatsby"
+import { PDFExport } from "@progress/kendo-react-pdf"
 // import canvg from 'canvg'
 
 /* eslint-disable react/jsx-pascal-case */
-import SEO from '../components/seo'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import SEO from "../components/seo"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
-import './resume.css'
+import "./resume.css"
 
 class Resume extends React.Component {
   constructor () {
@@ -35,97 +35,86 @@ class Resume extends React.Component {
     const resumeContent = {
       experience: [
         {
-          title: 'Software Engineer Intern',
-          location: 'UCSB Enterprise Technology Services',
-          date: 'May 2018 - Current',
+          title: "Frontend Software Engineer",
+          location: "CJ Affiliate",
+          date: "Dec 2019 - Current",
           details: [
-            'Responsible for leading frontend development on the Identity & Access Management team.',
-            'Designed, implemented, & tested new features for web apps built with Aurelia.js & Spring MVC.',
-            'Accomplishments include designing & deploying a brand new UI for UCSB\'s account management website, automating the build process between our back & frontend services, and designing a reusable component library to achieve consistency throughout our apps.'
-          ]
+            "As a Frontend Software Engineer, I design & develop new features for CJ's website using React, Vanilla JS, and Hubl.",
+          ],
         },
         {
-          title: 'Frontend Software Engineer',
-          location: 'Grassp Health',
-          date: 'Sep 2018 - June 2019',
+          title: "Software Engineer Intern",
+          location: "UCSB Enterprise Technology Services",
+          date: "May 2018 - Sep 2019",
           details: [
-            'Designed & developed new features for a web app built with React/Redux and Spring MVC.',
-            'Worked closely with CEO & CFO to design a new user interface using Material-UI.',
-            'Successfully released updated application as a Progressive Web App with support for service workers, push notifications, and offline support.'
-          ]
-        }
+            "As a Software Engineer Intern, I designed & developed web apps for UCSB's Identity & Access Management portal using Aurelia.js & Spring MVC.",
+            "Accomplishments include releasing a large scale UI redesign as the sole developer, automating the build processes for our QA and production environments, and identifying & securing vulnerabilities in our codebase.",
+          ],
+        },
+        {
+          title: "Software Engineer",
+          location: "Grassp Health",
+          date: "Sep 2018 - June 2019",
+          details: [
+            "As a Software Engineer, I worked with leadership to design, develop, & successfully deploy a new Progressive Web App for their platform using React/Redux and Spring MVC.",
+          ],
+        },
       ],
       projects: [
         {
-          title: 'Amazon Giveaway Bot',
-          subtitle: 'Chrome extension to win Amazon Giveaways',
-          url: 'https://github.com/TyGooch/amazon-giveaway-bot',
+          title: "Amazon Giveaway Bot",
+          subtitle: "Chrome extension to win Amazon Giveaways",
+          url: "https://github.com/TyGooch/amazon-giveaway-bot",
           details: [
-            'Built with vanilla JS and Webpack.',
-            'Features include CAPTCHA solving, customizable filters, and support for multiple accounts.',
-            'Bypasses client side validation to enter giveaways without fulfilling time intensive entry requirements.'
-          ]
+            "Built with vanilla JS and Webpack.",
+            "Bypasses Amazon's bot detection measures to quickly enter giveways and win free products.",
+            "Features CAPTCHA solving, customizable filters, and UI designed for non-technical users.",
+          ],
         },
         {
-          title: 'UCSB Map',
-          subtitle: 'Interactive map of the UCSB campus',
-          url: 'https://github.com/TyGooch/ucsb-map',
+          title: "UCSB Map",
+          subtitle: "Interactive map of the UCSB campus",
+          url: "https://github.com/TyGooch/ucsb-map",
           details: [
-            'Built with React/Redux, Leaflet.js, Java Spring MVC, and MongoDB.',
-            'Features a fully responsive UI, custom styled map tiles, an easy to use search tool, and interior floor plans to make finding rooms easier than ever.',
-            'Integrates easily with UCSB online schedules via a chrome extension, allowing students to view classroom locations with one click.'
-          ]
+            "Built with React/Redux, Leaflet.js, Java Spring MVC, and MongoDB.",
+            "Features a fully responsive UI, custom map tiles, predictive search, and interior floor plans.",
+          ],
         },
         {
-          title: 'Isla Vista Emergency Map',
-          subtitle: 'Interactive map of real time emergencies',
-          url: 'https://github.com/TyGooch/iv-emergency-map',
+          title: "Isla Vista Emergency Map",
+          subtitle: "Interactive map of real time emergencies",
+          url: "https://github.com/TyGooch/iv-emergency-map",
           details: [
-            'Built with React/Redux, Express.js, Google Maps, and MongoDB.',
-            'Streams live tweets from SB County Fire using the Twitter API.',
-            'Converts addresses from tweet content into map markers using Google Maps API.'
-          ]
-        }
+            "Built with React/Redux, Express.js, Google Maps API, and MongoDB.",
+            "Scrapes info from Santa Barbara County Fire via a Twitter live stream to display 911 responses in real time as map markers.",
+          ],
+        },
       ],
       skills: {
-        LANGUAGES:
-        [
-          'JavaScript (ES6+)',
-          'HTML, CSS',
-          'Bash',
-          'Java'
+        LANGUAGES: ["JavaScript (ES6+)", "HTML, CSS", "Bash", "Java"],
+        FRAMEWORKS: [
+          "React.js, Redux",
+          "Express.js",
+          "Aurelia.js",
+          "Gatsby.js",
         ],
-        FRAMEWORKS:
-        [
-          'React.js, Redux',
-          'Express.js',
-          'Aurelia.js',
-          'Gatsby.js'
+        "TOOLS & TECH": ["Node.js", "Webpack", "Leaflet.js", "Linux"],
+        "UI/UX": [
+          "Adobe Illustrator",
+          "Sketch App",
+          "Material-UI",
+          "Bootstrap",
         ],
-        'TOOLS & TECH':
-      [
-        'Node.js',
-        'Webpack',
-        'Leaflet.js',
-        'Linux'
-      ],
-        'UI/UX':
-        [
-          'Adobe Illustrator',
-          'Sketch App',
-          'Material-UI',
-          'Bootstrap'
-        ]
       },
       education: [
         {
-          title: 'UC Santa Barbara',
-          subtitle: 'Computer Science Engineering / 2014 - 2019',
+          title: "UC Santa Barbara",
+          subtitle: "Computer Science Engineering / 2014 - 2019",
           details: [
-            'Coursework focused on software development alongside data structures & algorithms.'
-          ]
-        }
-      ]
+            "Coursework focused on software development alongside data structures & algorithms.",
+          ],
+        },
+      ],
     }
 
     return (
@@ -135,7 +124,7 @@ class Resume extends React.Component {
         <div className='resume-container'>
           <a
             rel='noopener noreferrer'
-            href={withPrefix('/TyGoochResume.pdf')}
+            href={withPrefix("/TyGoochResume.pdf")}
             target='_blank'
             className='resume-download-button'
           >
@@ -151,7 +140,8 @@ class Resume extends React.Component {
               keywords='Ty Gooch Resume React Javascript Java Python C++ Vue ReactJS Native VueJS Bootstrap CSS HTML HTML5 JQuery LaTeX NodeJS Node.js Node Git Flow  Router Redux'
               proxyURL='/save'
               forceProxy
-              proxyTarget='_blank' rel='noopener noreferrer'
+              proxyTarget='_blank'
+              rel='noopener noreferrer'
               ref={pdf => {
                 this.resume = pdf
               }}
@@ -162,42 +152,77 @@ class Resume extends React.Component {
                 <div className='resume-header'>
                   <div className='resume-header-name'>Ty Gooch</div>
                   <ul className='resume-footer-links'>
-                    <a href='tel:+18057056502' target='_blank' rel='noopener noreferrer'>
+                    <a
+                      href='tel:+18057056502'
+                      target='_blank'
+                      rel='noopener noreferrer'
+                    >
                       <li key='websiteLink'>
-                        <FontAwesomeIcon icon={['fas', 'mobile-android-alt']} listItem />
+                        <FontAwesomeIcon
+                          icon={["fas", "mobile-android-alt"]}
+                          listItem
+                        />
                         <span>805-705-6502</span>
                       </li>
                     </a>
 
-                    <a href='https://github.com/tygooch' target='_blank' rel='noopener noreferrer'>
+                    <a
+                      href='https://github.com/tygooch'
+                      target='_blank'
+                      rel='noopener noreferrer'
+                    >
                       <li key='githubLink'>
-                        <FontAwesomeIcon icon={['fab', 'github-alt']} listItem />
+                        <FontAwesomeIcon
+                          icon={["fab", "github-alt"]}
+                          listItem
+                        />
                         <span>github.com/tygooch</span>
                       </li>
                     </a>
 
-                    <a href='mailto:gooch.ty@gmail.com' target='_blank' rel='noopener noreferrer'>
+                    <a
+                      href='mailto:gooch.ty@gmail.com'
+                      target='_blank'
+                      rel='noopener noreferrer'
+                    >
                       <li key='emailLink'>
-                        <FontAwesomeIcon icon={['fas', 'paper-plane']} listItem />
+                        <FontAwesomeIcon
+                          icon={["fas", "paper-plane"]}
+                          listItem
+                        />
                         <span>gooch.ty@gmail.com</span>
                       </li>
                     </a>
 
-                    <a href='https://tygoo.ch/linkedin' target='_blank' rel='noopener noreferrer'>
+                    <a
+                      href='https://tygoo.ch/linkedin'
+                      target='_blank'
+                      rel='noopener noreferrer'
+                    >
                       <li key='linkedInLink'>
-                        <FontAwesomeIcon icon={['fab', 'linkedin']} listItem />
+                        <FontAwesomeIcon icon={["fab", "linkedin"]} listItem />
                         <span>tygoo.ch/linkedin</span>
                       </li>
                     </a>
 
                     <li className='a' key='home' style={{ margin: 0 }}>
-                      <FontAwesomeIcon icon={['fas', 'map-marker-alt']} listItem />
+                      <FontAwesomeIcon
+                        icon={["fas", "map-marker-alt"]}
+                        listItem
+                      />
                       <span>Santa Barbara, CA</span>
                     </li>
 
-                    <a href='https://tygooch.com' target='_blank' rel='noopener noreferrer'>
+                    <a
+                      href='https://tygooch.com'
+                      target='_blank'
+                      rel='noopener noreferrer'
+                    >
                       <li key='websiteLink'>
-                        <FontAwesomeIcon icon={['far', 'window-alt']} listItem />
+                        <FontAwesomeIcon
+                          icon={["far", "window-alt"]}
+                          listItem
+                        />
                         <span>tygooch.com</span>
                       </li>
                     </a>
@@ -235,7 +260,11 @@ class Resume extends React.Component {
                       return (
                         <div key={el.title}>
                           <div className='experience-title'>
-                            <a href={el.url} target='_blank' rel='noopener noreferrer'>
+                            <a
+                              href={el.url}
+                              target='_blank'
+                              rel='noopener noreferrer'
+                            >
                               {el.title} - {el.subtitle}
                             </a>
                           </div>
@@ -306,7 +335,6 @@ class Resume extends React.Component {
               Save PDF
             </button>
           )} */}
-
         </div>
       </div>
     )
