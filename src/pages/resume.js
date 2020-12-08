@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import "./resume.css"
 
 class Resume extends React.Component {
-  constructor () {
+  constructor() {
     super()
     this.state = {}
     // this.exportPDF = this.exportPDF.bind(this)
@@ -31,7 +31,7 @@ class Resume extends React.Component {
   //   this.resume.save()
   // }
 
-  render () {
+  render() {
     const resumeContent = {
       experience: [
         {
@@ -39,7 +39,8 @@ class Resume extends React.Component {
           location: "CJ Affiliate",
           date: "Dec 2019 - Current",
           details: [
-            "As a Frontend Software Engineer, I design & develop new features for CJ's website using React, Vanilla JS, and Hubl.",
+            "As a Frontend Software Engineer, I use React, Vanilla JS, and Hubl to develop custom solutions for the HubSpot CMS platform.",
+            "Accomplishments include reducing business costs for data viz projects by developing a custom Tableau + HubSpot integration and increasing lead generation in foreign markets by improving support for localized web content.",
           ],
         },
         {
@@ -48,7 +49,7 @@ class Resume extends React.Component {
           date: "May 2018 - Sep 2019",
           details: [
             "As a Software Engineer Intern, I designed & developed web apps for UCSB's Identity & Access Management portal using Aurelia.js & Spring MVC.",
-            "Accomplishments include releasing a large scale UI redesign as the sole developer, automating the build processes for our QA and production environments, and identifying & securing vulnerabilities in our codebase.",
+            "Accomplishments include releasing a large scale UI redesign as the sole developer, automating build processes, and identifying & securing vulnerabilities in our codebase.",
           ],
         },
         {
@@ -56,7 +57,7 @@ class Resume extends React.Component {
           location: "Grassp Health",
           date: "Sep 2018 - June 2019",
           details: [
-            "As a Software Engineer, I worked with leadership to design, develop, & successfully deploy a new Progressive Web App for their platform using React/Redux and Spring MVC.",
+            "As a Software Engineer, I worked with stakeholders to design, develop, & deploy a new Progressive Web App for their platform using React + Redux and Spring MVC.",
           ],
         },
       ],
@@ -86,19 +87,19 @@ class Resume extends React.Component {
           url: "https://github.com/TyGooch/iv-emergency-map",
           details: [
             "Built with React/Redux, Express.js, Google Maps API, and MongoDB.",
-            "Scrapes info from Santa Barbara County Fire via a Twitter live stream to display 911 responses in real time as map markers.",
+            "Scrapes tweets from Santa Barbara County Fire using Twitter's API to display 911 responses in real time as map markers.",
           ],
         },
       ],
       skills: {
-        LANGUAGES: ["JavaScript (ES6+)", "HTML, CSS", "Bash", "Java"],
+        LANGUAGES: ["JavaScript (ES6+)", "HTML, CSS", "SQL, NoSQL", "Java"],
         FRAMEWORKS: [
           "React.js, Redux",
           "Express.js",
           "Aurelia.js",
           "Gatsby.js",
         ],
-        "TOOLS & TECH": ["Node.js", "Webpack", "Leaflet.js", "Linux"],
+        "TOOLS & TECH": ["Node.js", "Webpack", "Leaflet.js", "MongoDB"],
         "UI/UX": [
           "Adobe Illustrator",
           "Sketch App",
@@ -118,46 +119,37 @@ class Resume extends React.Component {
     }
 
     return (
-      <div className='resume'>
-        <SEO title='Resume' />
+      <div className="resume">
+        <SEO title="Resume" />
 
-        <div className='resume-container'>
-          <a
-            rel='noopener noreferrer'
-            href={withPrefix("/TyGoochResume.pdf")}
-            target='_blank'
-            className='resume-download-button'
-          >
-            <FontAwesomeIcon icon='file-download' />
-            <span>Download PDF</span>
-          </a>
-          <div className='resume-page'>
+        <div className="resume-container">
+          <div className="resume-page">
             <PDFExport
-              paperSize='Letter'
-              fileName='TyGoochResume.pdf'
-              title='Ty Gooch'
-              subject='Ty Gooch'
-              keywords='Ty Gooch Resume React Javascript Java Python C++ Vue ReactJS Native VueJS Bootstrap CSS HTML HTML5 JQuery LaTeX NodeJS Node.js Node Git Flow  Router Redux'
-              proxyURL='/save'
+              paperSize="Letter"
+              fileName="TyGoochResume.pdf"
+              title="Ty Gooch"
+              subject="Ty Gooch"
+              keywords="Ty Gooch Resume React Javascript Java Python C++ Vue ReactJS Native VueJS Bootstrap CSS HTML HTML5 JQuery LaTeX NodeJS Node.js Node Git Flow  Router Redux"
+              proxyURL="/save"
               forceProxy
-              proxyTarget='_blank'
-              rel='noopener noreferrer'
-              ref={pdf => {
+              proxyTarget="_blank"
+              rel="noopener noreferrer"
+              ref={(pdf) => {
                 this.resume = pdf
               }}
             >
               {/* <canvas ref='canvas' style={{ display: 'none' }} /> */}
 
-              <div className='resume-pdf'>
-                <div className='resume-header'>
-                  <div className='resume-header-name'>Ty Gooch</div>
-                  <ul className='resume-footer-links'>
+              <div className="resume-pdf">
+                <div className="resume-header">
+                  <div className="resume-header-name">Ty Gooch</div>
+                  <ul className="resume-footer-links">
                     <a
-                      href='tel:+18057056502'
-                      target='_blank'
-                      rel='noopener noreferrer'
+                      href="tel:+18057056502"
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
-                      <li key='websiteLink'>
+                      <li key="websiteLink">
                         <FontAwesomeIcon
                           icon={["fas", "mobile-android-alt"]}
                           listItem
@@ -167,11 +159,11 @@ class Resume extends React.Component {
                     </a>
 
                     <a
-                      href='https://github.com/tygooch'
-                      target='_blank'
-                      rel='noopener noreferrer'
+                      href="https://github.com/tygooch"
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
-                      <li key='githubLink'>
+                      <li key="githubLink">
                         <FontAwesomeIcon
                           icon={["fab", "github-alt"]}
                           listItem
@@ -181,11 +173,11 @@ class Resume extends React.Component {
                     </a>
 
                     <a
-                      href='mailto:gooch.ty@gmail.com'
-                      target='_blank'
-                      rel='noopener noreferrer'
+                      href="mailto:gooch.ty@gmail.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
-                      <li key='emailLink'>
+                      <li key="emailLink">
                         <FontAwesomeIcon
                           icon={["fas", "paper-plane"]}
                           listItem
@@ -195,30 +187,30 @@ class Resume extends React.Component {
                     </a>
 
                     <a
-                      href='https://tygoo.ch/linkedin'
-                      target='_blank'
-                      rel='noopener noreferrer'
+                      href="https://tygoo.ch/linkedin"
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
-                      <li key='linkedInLink'>
+                      <li key="linkedInLink">
                         <FontAwesomeIcon icon={["fab", "linkedin"]} listItem />
                         <span>tygoo.ch/linkedin</span>
                       </li>
                     </a>
 
-                    <li className='a' key='home' style={{ margin: 0 }}>
+                    <li className="a" key="home" style={{ margin: 0 }}>
                       <FontAwesomeIcon
                         icon={["fas", "map-marker-alt"]}
                         listItem
                       />
-                      <span>Santa Barbara, CA</span>
+                      <span>Ventura, CA</span>
                     </li>
 
                     <a
-                      href='https://tygooch.com'
-                      target='_blank'
-                      rel='noopener noreferrer'
+                      href="https://tygooch.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
-                      <li key='websiteLink'>
+                      <li key="websiteLink">
                         <FontAwesomeIcon
                           icon={["far", "window-alt"]}
                           listItem
@@ -228,22 +220,22 @@ class Resume extends React.Component {
                     </a>
                   </ul>
                 </div>
-                <div className='resume-body'>
-                  <div className='resume-section-header'>
-                    <span className='resume-section-header-number'>01.</span>
+                <div className="resume-body">
+                  <div className="resume-section-header">
+                    <span className="resume-section-header-number">01.</span>
                     EMPLOYMENT HISTORY
                   </div>
-                  <div className='resume-section'>
-                    {resumeContent.experience.map(el => (
+                  <div className="resume-section">
+                    {resumeContent.experience.map((el) => (
                       <div key={el.title}>
-                        <div className='experience-title'>
+                        <div className="experience-title">
                           <span>{el.title}</span>
-                          <span className='experience-subtitle'>
+                          <span className="experience-subtitle">
                             {el.location} / {el.date}
                           </span>
                         </div>
-                        <ul className='experience-details'>
-                          {el.details.map(el => (
+                        <ul className="experience-details">
+                          {el.details.map((el) => (
                             <li key={el}>{el}</li>
                           ))}
                         </ul>
@@ -251,25 +243,25 @@ class Resume extends React.Component {
                     ))}
                   </div>
 
-                  <div className='resume-section-header'>
-                    <span className='resume-section-header-number'>02.</span>
+                  <div className="resume-section-header">
+                    <span className="resume-section-header-number">02.</span>
                     PROJECTS
                   </div>
-                  <div className='resume-section'>
-                    {resumeContent.projects.map(el => {
+                  <div className="resume-section">
+                    {resumeContent.projects.map((el) => {
                       return (
                         <div key={el.title}>
-                          <div className='experience-title'>
+                          <div className="experience-title">
                             <a
                               href={el.url}
-                              target='_blank'
-                              rel='noopener noreferrer'
+                              target="_blank"
+                              rel="noopener noreferrer"
                             >
                               {el.title} - {el.subtitle}
                             </a>
                           </div>
-                          <ul className='experience-details'>
-                            {el.details.map(el => (
+                          <ul className="experience-details">
+                            {el.details.map((el) => (
                               <li key={el}>{el}</li>
                             ))}
                           </ul>
@@ -278,17 +270,17 @@ class Resume extends React.Component {
                     })}
                   </div>
 
-                  <div className='resume-section-header'>
-                    <span className='resume-section-header-number'>03.</span>
+                  <div className="resume-section-header">
+                    <span className="resume-section-header-number">03.</span>
                     SKILLS
                   </div>
-                  <div className='resume-section'>
-                    <ul className='skills'>
-                      {Object.keys(resumeContent.skills).map(el => {
+                  <div className="resume-section">
+                    <ul className="skills">
+                      {Object.keys(resumeContent.skills).map((el) => {
                         return (
                           <ul key={el}>
-                            <li className='experience-title'>{el}</li>
-                            {resumeContent.skills[el].map(skill => (
+                            <li className="experience-title">{el}</li>
+                            {resumeContent.skills[el].map((skill) => (
                               <li key={skill}>{skill}</li>
                             ))}
                           </ul>
@@ -297,21 +289,21 @@ class Resume extends React.Component {
                     </ul>
                   </div>
 
-                  <div className='resume-section-header'>
-                    <span className='resume-section-header-number'>04.</span>
+                  <div className="resume-section-header">
+                    <span className="resume-section-header-number">04.</span>
                     EDUCATION
                   </div>
-                  <div className='resume-section'>
-                    {resumeContent.education.map(el => (
+                  <div className="resume-section">
+                    {resumeContent.education.map((el) => (
                       <div key={el.title}>
-                        <div className='experience-title'>
+                        <div className="experience-title">
                           <span>{el.title}</span>
-                          <span className='experience-subtitle'>
+                          <span className="experience-subtitle">
                             {el.subtitle}
                           </span>
                         </div>
-                        <ul className='experience-details'>
-                          {el.details.map(el => (
+                        <ul className="experience-details">
+                          {el.details.map((el) => (
                             <li key={el}>{el}</li>
                           ))}
                         </ul>
@@ -322,9 +314,18 @@ class Resume extends React.Component {
               </div>
             </PDFExport>
           </div>
+          <a
+            rel="noopener noreferrer"
+            href={withPrefix("/TyGoochResume.pdf")}
+            target="_blank"
+            className="resume-download-button"
+          >
+            <FontAwesomeIcon icon="file-download" />
+            <span>Download PDF</span>
+          </a>
         </div>
-        <div className='resume-download'>
-          {/* {process.env.NODE_ENV === 'development' && (
+        {/* <div className="resume-download">
+          {process.env.NODE_ENV === 'development' && (
             <button
               onClick={this.exportPDF}
               style={{
@@ -334,8 +335,8 @@ class Resume extends React.Component {
               <FontAwesomeIcon icon='download' />
               Save PDF
             </button>
-          )} */}
-        </div>
+          )}
+        </div> */}
       </div>
     )
   }

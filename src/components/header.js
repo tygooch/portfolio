@@ -1,10 +1,10 @@
-import React, { useState, useContext } from 'react'
-import { Link, navigate } from 'gatsby'
-import { fallDown as Menu } from 'react-burger-menu'
-import 'hamburgers/dist/hamburgers.min.css'
+import React, { useState, useContext } from "react"
+import { Link, navigate } from "gatsby"
+import { fallDown as Menu } from "react-burger-menu"
+import "hamburgers/dist/hamburgers.min.css"
 
-import Logo from '../assets/logoInline.svg'
-import './header.css'
+import Logo from "../assets/logoInline.svg"
+import "./header.css"
 
 /* eslint-disable react/jsx-handler-names */
 const HeaderCtx = React.createContext()
@@ -20,40 +20,40 @@ const Header = () => {
           setMenuOpenState(!menuOpenState)
 
           document.body.setAttribute(
-            'style',
-            `overflow: ${!menuOpenState ? 'hidden' : 'auto'};
+            "style",
+            `overflow: ${!menuOpenState ? "hidden" : "auto"};
             `
           )
           document
-            .querySelector('html')
+            .querySelector("html")
             .setAttribute(
-              'style',
-              `overflow: ${!menuOpenState ? 'hidden' : 'auto'};`
+              "style",
+              `overflow: ${!menuOpenState ? "hidden" : "auto"};`
             )
-          document.querySelectorAll('.menu-item:not(.active)').forEach(el => {
+          document.querySelectorAll(".menu-item:not(.active)").forEach((el) => {
             el.setAttribute(
-              'style',
-              `color: ${!menuOpenState ? '#fff' : '#000'};`
+              "style",
+              `color: ${!menuOpenState ? "#fff" : "#000"};`
             )
           })
-          if (document.querySelector('.menu-item.active')) {
+          if (document.querySelector(".menu-item.active")) {
             document
-              .querySelector('.menu-item.active')
+              .querySelector(".menu-item.active")
               .setAttribute(
-                'style',
-                `color: ${!menuOpenState ? '#ce2d2d' : '#000'};`
+                "style",
+                `color: ${!menuOpenState ? "#ce2d2d" : "#000"};`
               )
           }
         },
         closeMenu: () => {
           setMenuOpenState(false)
           document.body.setAttribute(
-            'style',
-            'overflow: auto; position: static;'
+            "style",
+            "overflow: auto; position: static;"
           )
-          document.querySelector('html').setAttribute('style', 'overflow:auto;')
+          document.querySelector("html").setAttribute("style", "overflow:auto;")
         },
-        stateChangeHandler: newState => setMenuOpenState(newState.isOpen)
+        stateChangeHandler: (newState) => setMenuOpenState(newState.isOpen),
       }}
     >
       <Navigation />
@@ -65,17 +65,17 @@ const Hamburger = () => {
   const ctx = useContext(HeaderCtx)
   return (
     <button
-      id='hamburger'
+      id="hamburger"
       className={
         ctx.isMenuOpen
-          ? 'hamburger hamburger--collapse is-active'
-          : 'hamburger hamburger--collapse'
+          ? "hamburger hamburger--collapse is-active"
+          : "hamburger hamburger--collapse"
       }
-      type='button'
+      type="button"
       onClick={ctx.toggleMenu}
     >
-      <span className='hamburger-box'>
-        <span className='hamburger-inner' />
+      <span className="hamburger-box">
+        <span className="hamburger-inner" />
       </span>
     </button>
   )
@@ -86,67 +86,74 @@ const Navigation = () => {
 
   return (
     <>
-      <header className='header'>
-        <div className='header-logo' onClick={ctx.closeMenu} style={{ cursor: 'pointer' }}>
+      <header className="header">
+        <div
+          className="header-logo"
+          onClick={() => {
+            ctx.closeMenu()
+            navigate("/")
+          }}
+          style={{ cursor: "pointer" }}
+        >
           <Logo
-            id='headerLogoSVG'
-            height='30px'
-            className={ctx.isMenuOpen ? 'alt' : ''}
-            onClick={() => navigate('/')}
+            id="headerLogoSVG"
+            height="30px"
+            className={ctx.isMenuOpen ? "alt" : ""}
+            onClick={() => navigate("/")}
           />
         </div>
-        <div className='header-links'>
-          <Link to='/about' className='header-link' activeClassName='active'>
+        <div className="header-links">
+          <Link to="/about" className="header-link" activeClassName="active">
             about
           </Link>
           <Link
-            to='/portfolio'
-            className='header-link'
-            activeClassName='active'
+            to="/portfolio"
+            className="header-link"
+            activeClassName="active"
           >
             portfolio
           </Link>
-          <Link to='/resume' className='header-link' activeClassName='active'>
+          <Link to="/resume" className="header-link" activeClassName="active">
             resume
           </Link>
         </div>
-        <div id='mobile-links'>
+        <div id="mobile-links">
           <Hamburger />
           <Menu
-            id='mobileMenu'
+            id="mobileMenu"
             right
-            pageWrapId='page-wrap'
-            outerContainerId='outer-container'
+            pageWrapId="page-wrap"
+            outerContainerId="outer-container"
             isOpen={ctx.isMenuOpen}
-            onStateChange={state => ctx.stateChangeHandler(state)}
+            onStateChange={(state) => ctx.stateChangeHandler(state)}
             disableAutoFocus
-            width='100vw'
-            bodyClassName='body-menu-open'
+            width="100vw"
+            bodyClassName="body-menu-open"
             customBurgerIcon={false}
             customCrossIcon={false}
             noOverlay
           >
             {/* <div onClick={ctx.toggleMenu}> */}
             <Link
-              to='/about'
-              className='menu-item'
-              activeClassName='active'
+              to="/about"
+              className="menu-item"
+              activeClassName="active"
               onClick={ctx.toggleMenu}
             >
               about
             </Link>
             <Link
-              to='/portfolio'
-              className='menu-item'
-              activeClassName='active'
+              to="/portfolio"
+              className="menu-item"
+              activeClassName="active"
               onClick={ctx.toggleMenu}
             >
               portfolio
             </Link>
             <Link
-              to='/resume'
-              className='menu-item'
-              activeClassName='active'
+              to="/resume"
+              className="menu-item"
+              activeClassName="active"
               onClick={ctx.toggleMenu}
             >
               resume

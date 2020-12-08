@@ -77,6 +77,15 @@ main {
   height: 100%;
 }
 
-.particles-background{
+.particles-background {
   /* display: none; */
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
