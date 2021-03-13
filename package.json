@@ -41,7 +41,7 @@
     "react-pose": "^4.0.8",
     "react-reveal": "^1.2.2",
     "react-transition-group": "^4.3.0",
-    "xmldom": "^0.1.27"
+    "xmldom": "^0.5.0"
   },
   "keywords": [
     "gatsby"
